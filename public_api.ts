@@ -1,0 +1,1 @@
+export * from './src/app/modules/svg-icon-sprite/svg-icon-sprite.module';

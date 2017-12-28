@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Copy</title>
+    <defs>
+        <path d="M15.9235556,2 L9.33333333,2 C8.35288889,2 7.55555556,2.79822222 7.55555556,3.77777778 L7.55555556,16.2222222 C7.55555556,17.2026667 8.35288889,18 9.33333333,18 L18.2222222,18 C19.2026667,18 20,17.2026667 20,16.2222222 L20,6.07644444 L15.9235556,2 Z M18.2231111,16.2222222 L9.33333333,16.2222222 L9.33333333,3.77777778 L14.6666667,3.77777778 L14.6666667,7.33333333 L18.2222222,7.33333333 L18.2231111,16.2222222 Z M5.77777778,5.55555556 L5.77777778,19.7777778 L16.4444444,19.7777778 L16.4444444,21.5555556 L5.77777778,21.5555556 C4.79733333,21.5555556 4,20.7582222 4,19.7777778 L4,5.55555556 L5.77777778,5.55555556 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Copy">
+            <rect id="Bounding-Box" x="0" y="0" width="24" height="24"></rect>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="Mixin/Fill/Black" mask="url(#mask-2)" fill="#1D1F20">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            </g>
+        </g>
+        <g id="Section-Labels" transform="translate(-225.000000, -296.000000)"></g>
+    </g>
+</svg>

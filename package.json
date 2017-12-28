@@ -1,5 +1,5 @@
 {
-  "name": "my-component-library",
+  "name": "ng-svg-icon-sprite",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,7 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json",
+    "create-icon-sprite": "svg-symbols ./src/assets/icons > ./src/assets/sprites/svg-sprite.svg"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +25,8 @@
     "@angular/router": "^5.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "svg-symbols": "^1.0.4"
   },
   "devDependencies": {
     "@angular/cli": "1.6.2",
@@ -41,6 +44,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^1.6.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
