@@ -1,56 +1,134 @@
-# SVG-Icon-Sprite Package for Angular (4.x+)
+# SVG-Icon-Sprite package for Angular 4.x+
 
 ## Installation
 
+```
+npm install ng-svg-icon-sprite --save
+```
+
+After installing the package you can import it into any application’s app.module.ts by simply including it in its @NgModule imports array:
+
+```javascript
+import { SvgIconSpriteModule } from 'ng-svg-icon-sprite'; // <-- here
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    SvgIconSpriteModule // <-- here
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
 ## Usage
 
-## Styling
-The SVG component uses the currentColor value in CSS to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
+To use your SVGs as a sprite you need to do 2 things:
 
-```css
-h1 {
-  color: blue;
-}
-h1 svg {
-  fill: currentColor;
+1. Generate the SVG sprite using the provided script
+2. Include the `svg-icon-sprite` component with the proper path and name of the sprite file and icon
+
+### 1. Generate the sprite
+
+Each time you add a new icon, you will need to run the script that generates the sprite. Therefore you should add it as
+a npm script to your package.json:
+
+```javascript
+"scripts": {
+  "create-icon-sprite": "svg-symbols ./src/assets/icons > ./src/assets/sprites/sprite.svg"
 }
 ```
 
-To access other SVG properties than color or height, i.e. if you would like to access certain SVG shapes like circle,
-polygon etc., you need to use Angular's ::ng-deep (former /deep/) selector in the parent component:
+and run it
+
+```
+npm run create-icon-sprite
+```
+
+__Note: you neet to create an empty sprites folder before running the npm script__
+
+The [used library](https://www.npmjs.com/package/svg-symbols) for the sprite generation is already included as a
+dependency here, so you do not need to install it (just include the script like shown above).
+
+By default the script will take all svg icons from `src/app/assets/icons` and create a sprite into the
+`src/app/assets/sprites` folder using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/).
+
+```
+app
+├── assets
+    └── icons (svg icon source)
+        └── icon-1.svg
+        └── icon-2.svg
+    └── sprites (sprite destination folder)
+        └── sprite.svg
+```
+
+### 2. Use the component
+
+Now you can include icons by using the `svg-icon-sprite` component directive:
+
+```html
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [iconSize]="'100px'" [classes]="'some-icon-class'"></svg-icon-sprite>
+```
+
+## Options
+
+- `src` lets you choose the icon by name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
+the name of the sprite and `icon` is the former filename of the svg icon.
+- `iconSize` optional, lets you define the size of the svg in pixel, i.e. `32px`
+- `classes` optional, lets you choose an own class name for this icon
+
+## Styling
+
+Just add a CSS color property to the host component (the component invoking the svg-icon-sprite). The SVG component uses
+the currentColor value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
+
+```css
+color: red;
+```
+
+## Advanced Configuration
+
+### Assets folder
+
+If you have another folder structure than above, you can pass both your input and output path using the npm script:
+
+```javascript
+svg-symbols sourcefolder > destination/filename.svg
+```
+
+You can use any other "svg to symbol" library - the ng-svg-icon-sprite component is agnostic regarding the technology
+behind the sprite generation.
+
+### Custom Styling
+
+To access other SVG properties than color or height, you need to use Angular's ::ng-deep (former `/deep/`) selector in the parent component:
 
 ```css
 // Parent component styles
-div ::ng-deep .some-icon-class use {
-  fill: orange;
+::ng-deep svg.some-icon-class use {
+fill: orange;
 }
 ```
 
 or
 
 ```css
-ul ::ng-deep .some-icon-class {
-  height: 85px;
-  width: 85px;
+::ng-deep svg.some-icon-class {
+height: 85px;
+width: 85px;
 }
 ```
 
-## Assets folder
+### Local development vs. npm package
 
-The default folder for the source svg icons is `src/app/assets/icons` - the default output for the generated sprite will be 'src/app/assets/sprites'.
-If you have another folder structure, you can pass both your input and output path using the npm script:
-
-```javascript
-svg-symbols ./src/assets/icons > ./src/assets/sprites/svg-sprite.svg
-```
-
-__Note:__ you need to create the sprites directory before running the npm script (for svg sprite creation)
-
-## Local Development vs. Package
-
-This git repository contains all development files for the ng-icon-sprite package while npm library only includes the
-TypeScript library in Angular package format. The latter can be generated into a dist folder using ng-packagr (https://www.npmjs.com/package/ng-packagr)
-by running ng-packagr -p ng-package.json
+For users that would like to clone/fork this repository: this repo contains all development files for the ng-icon-sprite
+package while the [npm library](https://www.npmjs.com/package/ng-svg-icon-sprite) only includes the TypeScript package
+in Angular package format. The latter can be generated into a dist folder using [ng-packagr](https://www.npmjs.com/package/ng-packagr)
+by running `ng-packagr -p ng-package.json`
 
 ## Author & License
 - Jan Suwart | MIT License
