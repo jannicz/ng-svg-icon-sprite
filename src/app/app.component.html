@@ -1,18 +1,34 @@
-<div style="text-align:center">
+<div>
   <h1>
-    Welcome to {{ title }} development
+    Welcome to {{ title }} (package development app)
   </h1>
-</div>
-<h2>Here are some icon examples: </h2>
-<ul>
-  <li>
-    <svg-icon-sprite></svg-icon-sprite>
-  </li>
-  <li>
-    <svg-icon-sprite></svg-icon-sprite>
-  </li>
-  <li>
-    <svg-icon-sprite></svg-icon-sprite>
-  </li>
-</ul>
 
+  <h2>Usage</h2>
+
+  <p>
+    run <code>npm run create-icon-sprite</code> to create a sprite out of your SVG icons,
+    then run <code>npm run packagr</code> to create the svg-icon-sprite package that will appear in the dist folder.
+  </p>
+
+  <h2>Examples</h2>
+
+  <ul>
+    <li style="color: darkred;">
+      <svg-icon-sprite [src]="'assets/sprites/svg-sprite.svg#cart'" [iconSize]="'100px'"></svg-icon-sprite>
+      <span>red, 100px</span>
+    </li>
+    <li style="color: darkgreen;">
+      <svg-icon-sprite [src]="'assets/sprites/svg-sprite.svg#delete'" [iconSize]="'90px'"></svg-icon-sprite>
+      <span>green, 90px</span>
+    </li>
+    <li>
+      <svg-icon-sprite [src]="'assets/sprites/svg-sprite.svg#cart'" [classes]="'some-icon-class'"></svg-icon-sprite>
+      <span>global styles by <code>::ng-deep</code><br>orange, 85px</span>
+    </li>
+  </ul>
+
+</div>
+
+<p>
+  <small>Copyright Jan Suwart, MIT license</small>
+</p>

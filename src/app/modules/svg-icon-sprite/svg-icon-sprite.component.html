@@ -1,3 +1,4 @@
-<h1>
-  svg-icon-sprite works!
-</h1>
+<svg [ngClass]="classes" [ngStyle]="{ 'width': iconSize, 'height': iconSize }">
+  <use [attr.xlink:href]="src"></use>
+  {{classes}}
+</svg>

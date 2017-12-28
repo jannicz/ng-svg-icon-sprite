@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  font-family: Arial;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+  padding: 30px;
+}
+
+ul li span {
+  display: block;
+}
