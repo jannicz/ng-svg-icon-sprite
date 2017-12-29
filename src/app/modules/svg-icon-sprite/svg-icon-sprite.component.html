@@ -1,4 +1,3 @@
-<svg [ngClass]="classes" [ngStyle]="{ 'width': iconSize, 'height': iconSize }">
+<svg [ngClass]="classes" [ngStyle]="{ 'width': width, 'height': height || width }">
   <use [attr.xlink:href]="src"></use>
-  {{classes}}
 </svg>

@@ -1,4 +1,7 @@
-# SVG-Icon-Sprite package for Angular 4.x+
+# SVG icon sprite package for Angular 4+
+
+This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
+a solution for generating sprites and a component for including them.
 
 ## Installation
 
@@ -29,11 +32,11 @@ export class AppModule { }
 To use your SVGs as a sprite you need to do 2 things:
 
 1. Generate the SVG sprite using the provided script
-2. Include the `svg-icon-sprite` component with the proper path and name of the sprite file and icon
+2. Make use of the `svg-icon-sprite` component with the proper path and name of the sprite file and icon
 
 ### 1. Generate the sprite
 
-Each time you add a new icon, you will need to run the script that generates the sprite. Therefore you should add it as
+Each time you add a new icon, you will have to run the script that generates the sprite. Therefore you should add it as
 a npm script to your package.json:
 
 ```javascript
@@ -48,7 +51,7 @@ and run it
 npm run create-icon-sprite
 ```
 
-__Note: you neet to create an empty sprites folder before running the npm script__
+__Note: you need to create an empty sprites folder before running the npm script__
 
 The [used library](https://www.npmjs.com/package/svg-symbols) for the sprite generation is already included as a
 dependency here, so you do not need to install it (just include the script like shown above).
@@ -58,7 +61,7 @@ By default the script will take all svg icons from `src/app/assets/icons` and cr
 
 ```
 app
-├── assets
+└── assets
     └── icons (svg icon source)
         └── icon-1.svg
         └── icon-2.svg
@@ -71,20 +74,21 @@ app
 Now you can include icons by using the `svg-icon-sprite` component directive:
 
 ```html
-<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [iconSize]="'100px'" [classes]="'some-icon-class'"></svg-icon-sprite>
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [width]="'100px'" [classes]="'some-icon-class'"></svg-icon-sprite>
 ```
 
 ## Options
 
-- `src` lets you choose the icon by name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
-the name of the sprite and `icon` is the former filename of the svg icon.
-- `iconSize` optional, lets you define the size of the svg in pixel, i.e. `32px`
-- `classes` optional, lets you choose an own class name for this icon
+- `src` icon source name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
+the name of the sprite and `icon` is the filename of the svg icon.
+- `width` size of the svg in any unit, i.e. `32px`, `100%`, `auto`, etc.
+- `height` optional, size of the svg - if undefined height and width will be equal
+- `classes` optional, class name for this icon, default is `icon`
 
 ## Styling
 
 Just add a CSS color property to the host component (the component invoking the svg-icon-sprite). The SVG component uses
-the currentColor value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
+the `currentColor` value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
 
 ```css
 color: red;
@@ -100,28 +104,45 @@ If you have another folder structure than above, you can pass both your input an
 svg-symbols sourcefolder > destination/filename.svg
 ```
 
-You can use any other "svg to symbol" library - the ng-svg-icon-sprite component is agnostic regarding the technology
+You can use any other "svg to symbol" library - the `ng-svg-icon-sprite` module is agnostic regarding the technology
 behind the sprite generation.
 
 ### Custom Styling
 
-To access other SVG properties than color or height, you need to use Angular's ::ng-deep (former `/deep/`) selector in the parent component:
+To access inner SVG properties like fill or stroke, you need to use Angular's ::ng-deep (former `/deep/`) selector in
+the parent component and select the `use` tag inside the SVG:
 
 ```css
-// Parent component styles
-::ng-deep svg.some-icon-class use {
-fill: orange;
+// css of the parent component
+::ng-deep svg.icon use {
+  fill: orange;
 }
 ```
 
-or
+or to access properties like height or width at the root of the svg:
 
 ```css
-::ng-deep svg.some-icon-class {
-height: 85px;
-width: 85px;
+// css of the parent component
+::ng-deep svg.icon {
+  height: 85px;
+  width: 85px;
 }
 ```
+
+## Sizing
+
+Make sure your exported SVG file contains a viewbox and width or height properties. Otherwise the browser might
+scale or size it unexpectedly:
+
+```html
+<svg width="18px" height="10px" viewBox="0 0 18 10" version="1.1">
+  <g>
+    ...
+  </g>
+</svg>
+```
+
+Still having trouble with scaling? [Read this article](https://css-tricks.com/scale-svg/).
 
 ### Local development vs. npm package
 

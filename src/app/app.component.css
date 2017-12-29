@@ -1,6 +1,6 @@
 div ::ng-deep svg.some-icon-class {
-  height: 85px;
-  width: 85px;
+  height: 75px;
+  width: 75px;
 }
 
 div ::ng-deep svg.some-icon-class use {

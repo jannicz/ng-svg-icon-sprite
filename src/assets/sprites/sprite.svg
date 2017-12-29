@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;"><symbol viewBox="0 0 80 80" id="cart"><title>shopping-cart</title><path id="_Pfad_" data-name=" Pfad " d="M55.08,53.71A4.26,4.26,0,1,0,59.28,58s0,0,0-.06a4,4,0,0,0-3.74-4.25H55.08Z"/><path id="_Pfad_2" data-name=" Pfad 2" d="M30.49,53.71A4.26,4.26,0,1,0,34.75,58,4.26,4.26,0,0,0,30.49,53.71Z"/><path d="M67.15,26.76l-2.84-.52a1.28,1.28,0,0,0-1.6.78l-0.37,2H23.66L22.86,23.8H9a1.18,1.18,0,0,0-1.39.88v3.66a1.32,1.32,0,0,0,1.49.91h8.83L18,30.46h0L20,49l0,0.51v0.11A1.39,1.39,0,0,0,21.41,51H63.49a1.55,1.55,0,0,0,1.5-1.5l2.92-18.4,0.51-3A1.31,1.31,0,0,0,67.15,26.76ZM60.72,39.21H51.29V34.52h10.2Zm-24.12,0V34.52h12.7v4.69H36.59Zm12.71,2v4.58H36.59V41.21H49.3ZM34.59,34.52v4.69H24.78l-0.45-4.69H34.59ZM25,41.21h9.63v4.58H25.41Zm26.33,4.58V41.21h9.08l-0.78,4.58h-8.3Z"/></symbol><symbol viewBox="0 0 24 24" id="delete">
-   <title>Icon/Delete</title>
-  <path d="M5,19 C5,20.103 5.897,21 7,21 L17,21 C18.103,21 19,20.103 19,19 L19,7 L5,7 L5,19 Z M7,9 L17,9 L17.001,19 L7,19 L7,9 Z M15,4 L21,4 L21,6 L3,6 L3,4 L9,4 L9,2 L15,2 L15,4 Z M9,11 L9,17 L11,17 L11,11 L9,11 Z M13,11 L13,17 L15,17 L15,11 L13,11 Z" id="path-1"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;"><symbol viewBox="0 0 24 24" id="delete">
+    <path d="M6 19c0 1.105 0.895 2 2 2h8c1.105 0 2-0.895 2-2v-12h-12v12zM19 4h-3.5l-1-1h-5l-1 1h-3.5v2h14v-2z"/>
+</symbol><symbol viewBox="0 0 24 24" id="star">
+	<path d="M12 17.27l6.18 3.73-1.64-7.030 5.46-4.73-7.19-0.61-2.81-6.63-2.81 6.63-7.19 0.61 5.46 4.73-1.64 7.030z"/>
 </symbol></svg>

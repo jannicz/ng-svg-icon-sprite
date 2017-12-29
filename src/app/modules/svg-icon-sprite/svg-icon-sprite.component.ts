@@ -12,7 +12,8 @@ export class SvgIconSpriteComponent {
 
   @Input() public src: string;
   @Input() public classes = 'icon';
-  @Input() public iconSize: string;
+  @Input() public width: string;
+  @Input() public height: string;
 
   constructor() { }
 }
