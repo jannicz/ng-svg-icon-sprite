@@ -3,6 +3,10 @@
 This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
 a solution for generating sprites and a component for including them.
 
+<p>
+  <img src="svg-icon-sprite-example.png" width="450" alt=""/>
+</p>
+
 ## Installation
 
 ```
