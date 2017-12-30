@@ -159,9 +159,12 @@ Still having trouble with scaling or sizing? [Read this article](https://css-tri
 - Safari 11
 - Edge
 
-Older browsers like <= IE11 (only with a Polyfill)[https://github.com/jonathantneal/svg4everybody]
+### Limitations
 
-### Local development vs. npm package
+Older browsers do not support referencing to (external) SVG symbols. To make it work in IE11 and lower you can use this
+[Polyfill](https://github.com/jonathantneal/svg4everybody)
+
+## Local development vs. npm package
 
 For users that would like to clone/fork this repository: this repo contains all development files for the ng-icon-sprite
 package while the [npm library](https://www.npmjs.com/package/ng-svg-icon-sprite) only includes the TypeScript package
