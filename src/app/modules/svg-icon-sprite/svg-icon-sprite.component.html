@@ -1,3 +1,11 @@
-<svg [ngClass]="classes" [ngStyle]="{ 'width': width, 'height': height || width }">
-  <use [attr.xlink:href]="src"></use>
-</svg>
+<ng-container *ngIf="!viewBox; else viewBoxTemplate">
+  <svg [ngClass]="classes" [attr.width]="width" [attr.height]="height || width">
+    <use [attr.xlink:href]="src"></use>
+  </svg>
+</ng-container>
+
+<ng-template #viewBoxTemplate>
+  <svg [ngClass]="classes" [attr.width]="width" [attr.height]="height || width" [attr.viewBox]="viewBox" [attr.preserveAspectRatio]="preserveAspectRatio">
+    <use [attr.xlink:href]="src"></use>
+  </svg>
+</ng-template>

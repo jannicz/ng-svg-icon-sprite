@@ -12,8 +12,10 @@ export class SvgIconSpriteComponent {
 
   @Input() public src: string;
   @Input() public classes = 'icon';
-  @Input() public width: string;
+  @Input() public width = '100%';
   @Input() public height: string;
+  @Input() public viewBox: string;
+  @Input() public preserveAspectRatio = 'xMinYMax meet';
 
   constructor() { }
 }

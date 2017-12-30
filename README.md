@@ -13,7 +13,8 @@ a solution for generating sprites and a component for including them.
 npm install ng-svg-icon-sprite --save
 ```
 
-After installing the package you can import it into any application’s app.module.ts by simply including it in its @NgModule imports array:
+After installing the package you can import it into any application’s app.module.ts by simply including it in its
+`@NgModule` imports array:
 
 ```javascript
 import { SvgIconSpriteModule } from 'ng-svg-icon-sprite'; // <-- here
@@ -78,16 +79,22 @@ app
 Now you can include icons by using the `svg-icon-sprite` component directive:
 
 ```html
-<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [width]="'100px'" [classes]="'some-icon-class'"></svg-icon-sprite>
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [width]="'100px'" [classes]="'my-icon-class'"></svg-icon-sprite>
+
+<!-- or with a dynamic icon name -->
+
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + iconName" [width]="'100%'"></svg-icon-sprite>
 ```
 
 ## Options
 
-- `src` icon source name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
+- `src` - icon source name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
 the name of the sprite and `icon` is the filename of the svg icon.
-- `width` size of the svg in any unit, i.e. `32px`, `100%`, `auto`, etc.
-- `height` optional, size of the svg - if undefined height and width will be equal
-- `classes` optional, class name for this icon, default is `icon`
+- `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
+- `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
+- `classes` *optional* - class name for this icon, default is `icon`
+- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (can be used if `viewBox` is missing)
+- `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox` (see SVG standard for details)
 
 ## Styling
 
@@ -113,11 +120,11 @@ behind the sprite generation.
 
 ### Custom Styling
 
-To access inner SVG properties like fill or stroke, you need to use Angular's ::ng-deep (former `/deep/`) selector in
+To access inner SVG properties like `fill` or `stroke`, you need to use Angular's ::ng-deep (former `/deep/`) selector in
 the parent component and select the `use` tag inside the SVG:
 
 ```css
-// css of the parent component
+/* parent component style */
 ::ng-deep svg.icon use {
   fill: orange;
 }
@@ -126,27 +133,33 @@ the parent component and select the `use` tag inside the SVG:
 or to access properties like height or width at the root of the svg:
 
 ```css
-// css of the parent component
+/* parent component style */
 ::ng-deep svg.icon {
   height: 85px;
   width: 85px;
 }
 ```
 
-## Sizing
+### Scaling and Sizing
 
-Make sure your exported SVG file contains a viewbox and width or height properties. Otherwise the browser might
-scale or size it unexpectedly:
+If your SVG does not scale like expected (i.e. it is cropped or larger than desired) it might be lacking a `viewBox`.
+You need to set the `viewBox` property manually to match the size of the exported shape. A combination of the correct
+`viewBox` and width is required. Add the `viewBox` property and decrease/increase the last 2 values until you have it right:
 
 ```html
-<svg width="18px" height="10px" viewBox="0 0 18 10" version="1.1">
-  <g>
-    ...
-  </g>
-</svg>
+<!-- i.e. lower '0 0 80 80' to '0 0 40 40' to scale down -->
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#asterix'" [width]="'40px'" [viewBox]="'0 0 80 80'"></svg-icon-sprite>
 ```
 
-Still having trouble with scaling? [Read this article](https://css-tricks.com/scale-svg/).
+Still having trouble with scaling or sizing? [Read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+
+## Browser Support (tested)
+- Chrome (63)
+- Firefox (57)
+- Safari 11
+- Edge
+
+Older browsers like <= IE11 (only with a Polyfill)[https://github.com/jonathantneal/svg4everybody]
 
 ### Local development vs. npm package
 
