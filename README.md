@@ -3,6 +3,10 @@
 This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
 a solution for generating sprites and a component for including them.
 
+<a href="https://jannicz.github.io/ng-svg-icon-sprite/">
+  <strong>See ng-svg-icon-sprite demo</strong>
+</a>
+
 <p>
   <img src="svg-icon-sprite-example.png" width="450" alt=""/>
 </p>
@@ -158,11 +162,21 @@ Still having trouble with scaling or sizing? [Read this article](https://css-tri
 - Firefox (57)
 - Safari 11
 - Edge
+- IE 11 (with polyfill)
+
+Check the [demo](https://jannicz.github.io/ng-svg-icon-sprite/) if it meets your requirements before using it.
 
 ### Limitations
 
-Older browsers do not support referencing to (external) SVG symbols. To make it work in IE11 and lower you can use this
-[Polyfill](https://github.com/jonathantneal/svg4everybody)
+Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add this
+[Polyfill](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
+
+```javascript
+import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
+svg4everybody();
+```
+
+To have clean SVG icons before processing them into sprites you can additionally use [svgo](https://www.npmjs.com/package/svgo).
 
 ## Local development vs. npm package
 
