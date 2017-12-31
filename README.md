@@ -97,7 +97,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 - `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
 - `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
 - `classes` *optional* - class name for this icon, default is `icon`
-- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (can be used if `viewBox` is missing)
+- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (to be used if the viewBox of the SVG is missing)
 - `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox` (see SVG standard for details)
 
 ## Styling
@@ -106,6 +106,7 @@ Just add a CSS color property to the host component (the component invoking the 
 the `currentColor` value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
 
 ```css
+/* parent component styles */
 color: red;
 ```
 
@@ -115,12 +116,12 @@ color: red;
 
 If you have another folder structure than above, you can pass both your input and output path using the npm script:
 
-```javascript
+```
 svg-symbols sourcefolder > destination/filename.svg
 ```
 
-You can use any other "svg to symbol" library - the `ng-svg-icon-sprite` module is agnostic regarding the technology
-behind the sprite generation.
+Of course you can use any other "svg to symbol" library - the `ng-svg-icon-sprite` module is agnostic regarding the
+technology behind the sprite generation.
 
 ### Custom Styling
 
@@ -155,28 +156,29 @@ You need to set the `viewBox` property manually to match the size of the exporte
 <svg-icon-sprite [src]="'assets/sprites/sprite.svg#asterix'" [width]="'40px'" [viewBox]="'0 0 80 80'"></svg-icon-sprite>
 ```
 
-Still having trouble with scaling or sizing? [Read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
+additionally using [svgo](https://www.npmjs.com/package/svgo). And [read this article](https://css-tricks.com/scale-svg/)
+about SVG scaling.
 
 ## Browser Support (tested)
 - Chrome (63)
 - Firefox (57)
 - Safari 11
 - Edge
-- IE 11 (with polyfill)
+- IE 11 (with polyfill, see below)
 
 Check the [demo](https://jannicz.github.io/ng-svg-icon-sprite/) if it meets your requirements before using it.
 
 ### Limitations
 
 Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add this
-[Polyfill](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
+[svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
 
 ```javascript
+// Add these lines in polyfills.ts
 import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
-
-To have clean SVG icons before processing them into sprites you can additionally use [svgo](https://www.npmjs.com/package/svgo).
 
 ## Local development vs. npm package
 
