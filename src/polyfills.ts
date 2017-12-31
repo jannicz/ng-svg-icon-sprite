@@ -35,7 +35,7 @@ import 'core-js/es6/weak-map';
 import 'core-js/es6/set';
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
+import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /** IE10 and IE11 requires the following for the Reflect API. */
 import 'core-js/es6/reflect';
@@ -65,5 +65,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  */
 
 /** IE10 and IE11 external SVG polyfill */
-// import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
-// svg4everybody();
+import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
+svg4everybody();
