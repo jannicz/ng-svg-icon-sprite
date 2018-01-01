@@ -69,16 +69,16 @@ small {
   color: #333;
 }
 
-ul {
+ul.inline {
   list-style: none;
   padding: 0;
 }
 
-ul li {
+ul.inline li {
   display: inline-block;
   padding: 30px;
 }
 
-ul li span {
+ul.inline li span {
   display: block;
 }

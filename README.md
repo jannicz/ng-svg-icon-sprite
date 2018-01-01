@@ -83,11 +83,18 @@ app
 Now you can include icons by using the `svg-icon-sprite` component directive:
 
 ```html
-<svg-icon-sprite [src]="'assets/sprites/sprite.svg#cart'" [width]="'100px'" [classes]="'my-icon-class'"></svg-icon-sprite>
+<svg-icon-sprite
+  [src]="'assets/sprites/sprite.svg#cart'"
+  [width]="'22px'"
+  [classes]="'my-icon-class'"
+></svg-icon-sprite>
 
 <!-- or with a dynamic icon name -->
 
-<svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + iconName" [width]="'100%'"></svg-icon-sprite>
+<svg-icon-sprite
+  [src]="'assets/sprites/sprite.svg#' + iconName"
+  [width]="'50%'"
+></svg-icon-sprite>
 ```
 
 ## Options
@@ -153,12 +160,16 @@ You need to set the `viewBox` property manually to match the size of the exporte
 
 ```html
 <!-- i.e. lower '0 0 80 80' to '0 0 40 40' to scale down -->
-<svg-icon-sprite [src]="'assets/sprites/sprite.svg#asterix'" [width]="'40px'" [viewBox]="'0 0 80 80'"></svg-icon-sprite>
+<svg-icon-sprite
+  [src]="'assets/sprites/sprite.svg#star'"
+  [width]="'40px'"
+  [viewBox]="'0 0 80 80'"
+></svg-icon-sprite>
 ```
 
 Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
-additionally using [svgo](https://www.npmjs.com/package/svgo). And [read this article](https://css-tricks.com/scale-svg/)
-about SVG scaling.
+additionally using [svgo](https://www.npmjs.com/package/svgo). If this doesn't help either
+[read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
 ## Browser Support (tested)
 - Chrome (63)
@@ -169,13 +180,13 @@ about SVG scaling.
 
 Check the [demo](https://jannicz.github.io/ng-svg-icon-sprite/) if it meets your requirements before using it.
 
-### Limitations
+### Polyfill for IE11 (and comparable)
 
-Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add this
+Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add
 [svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
 
 ```javascript
-// Add these lines in polyfills.ts
+// Import and execute in polyfills.ts file
 import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
@@ -183,8 +194,8 @@ svg4everybody();
 ## Local development vs. npm package
 
 For users that would like to clone/fork this repository: this repo contains all development files for the ng-icon-sprite
-package while the [npm library](https://www.npmjs.com/package/ng-svg-icon-sprite) only includes the TypeScript package
-in Angular package format. The latter can be generated into a dist folder using [ng-packagr](https://www.npmjs.com/package/ng-packagr)
+package while the [npm library](https://www.npmjs.com/package/ng-svg-icon-sprite) only includes the generated TypeScript package
+in Angular package format. The latter was generated using [ng-packagr](https://www.npmjs.com/package/ng-packagr)
 by running `ng-packagr -p ng-package.json`
 
 ## Author & License

@@ -4,23 +4,37 @@
   </h1>
 
   <p>
-    Angular package format that provides both a solution for generating sprites and a component for including them.
+    Angular package that provides both a solution for generating sprites and a component for including them.
   </p>
 
-  <a href="https://github.com/jannicz/ng-svg-icon-sprite">
-    <strong>ng-svg-icon-sprite source on Github</strong>
-  </a>
+  <ul>
+    <li>
+      <a href="https://github.com/jannicz/ng-svg-icon-sprite">
+        <strong>ng-svg-icon-sprite sources on Github</strong>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.npmjs.com/package/ng-svg-icon-sprite">
+        <strong>ng-svg-icon-sprite package on npm</strong>
+      </a>
+    </li>
+  </ul>
 
   <h2>Usage</h2>
 
   <p>
-    run <code>npm run create-icon-sprite</code> to create a sprite out of your SVG icons,
-    then run <code>npm run packagr</code> to create the svg-icon-sprite package that will appear in the dist folder.
+    install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; SvgIconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it
+    in any <code>@NgModule</code> imports array.
+  </p>
+
+  <p>
+    run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>
+    directive like shown below.
   </p>
 
   <h2>Basic Examples</h2>
 
-  <ul>
+  <ul class="inline">
     <li style="color: darkred;">
       <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'100px'"></svg-icon-sprite>
       <span>red, 100px</span>
@@ -35,12 +49,24 @@
     </li>
   </ul>
 
-
   <h2>ViewBox Example</h2>
-  <ul>
+  <ul class="inline">
     <li style="color: magenta;">
       <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star-no-viewBox'" [width]="'80px'" [viewBox]="'0 0 24 24'"></svg-icon-sprite>
       <span>magenta 80px,<br>viewBox <code>'0 0 24 24'</code></span>
+    </li>
+  </ul>
+
+  <h2>Variable Example</h2>
+
+  <button (click)="changeIconPath(iconSprite.src)">Change Icon Path</button>
+  <button (click)="changeIconSize(iconSprite.width)">Size +</button>
+  <input #colorInput type="text" value="red">
+  <button (click)="changeIconColor(colorInput.value)">Set color</button>
+
+  <ul class="inline">
+    <li [style.color]="color">
+      <svg-icon-sprite #iconSprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width"></svg-icon-sprite>
     </li>
   </ul>
 
@@ -51,3 +77,5 @@
     <small>Copyright Jan Suwart, MIT license</small>
   </p>
 </div>
+
+<!-- https://medium.com/@nikolasleblanc/building-an-angular-4-component-library-with-the-angular-cli-and-ng-packagr-53b2ade0701e -->
