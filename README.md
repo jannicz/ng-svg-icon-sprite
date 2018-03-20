@@ -40,12 +40,12 @@ export class AppModule { }
 
 To use your SVGs as a sprite you need to:
 
-1. Generate the SVG sprite using the provided script
+1. Generate a SVG sprite using the provided script
 2. Include the `svg-icon-sprite` component with the proper sprite path and SVG name
 
 ### Step 1: Generate the sprite
 
-Each time you add a new icon, you will have to run the script that generates the sprite. You might want to add it to your package.json:
+Each time you add an icon, you need to run a script that generates the sprite. You might want to add it to your package.json:
 
 ```javascript
 "scripts": {
@@ -53,8 +53,8 @@ Each time you add a new icon, you will have to run the script that generates the
 }
 ```
 
-Because the [used library](https://www.npmjs.com/package/svg-symbols) for sprite generation is already included as a
-dependency, you can execute it right away:
+The used library [for sprite generation svg-symbols](https://www.npmjs.com/package/svg-symbols) is already included as a
+dependency that can be executed right away:
 
 ```
 npm run create-icon-sprite
@@ -108,7 +108,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 
 ## Styling
 
-Just add a CSS color property to the host component (the component invoking the svg-icon-sprite). The SVG component uses
+To change the sprite color add a CSS `color` property to the component invoking svg-icon-sprite. The SVG component uses
 the `currentColor` value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
 
 ```css
@@ -130,7 +130,7 @@ You can combine the `ng-svg-icon-sprite` module with any other sprite generation
 
 ### Custom Styling
 
-To access inner SVG properties like `fill` or `stroke`, you need to use Angular's ::ng-deep (former `/deep/`) selector in
+To access inner SVG properties like `fill` or `stroke`, you need to use Angular's `::ng-deep` (former `/deep/`) selector in
 the host component and select the `use` tag inside the SVG:
 
 ```css
@@ -143,7 +143,7 @@ the host component and select the `use` tag inside the SVG:
 or to access SVG properties like height or width:
 
 ```css
-/* host component stylse */
+/* host component styles */
 ::ng-deep svg.icon {
   height: 85px;
   width: 85px;
@@ -157,7 +157,7 @@ You need to set the `viewBox` property manually to match the size of the exporte
 `viewBox` and width is required. Add the `viewBox` property and decrease/increase the last 2 values:
 
 ```html
-<!-- i.e. lower '0 0 80 80' to '0 0 40 40' to scale down -->
+<!-- i.e. lower '0 0 80 80' to '0 0 40 40' to scale up/down -->
 <svg-icon-sprite
   [src]="'assets/sprites/sprite.svg#star'"
   [width]="'40px'"
