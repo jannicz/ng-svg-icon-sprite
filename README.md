@@ -11,6 +11,13 @@ a solution for generating SVG sprites and a component for including them.
   <img src="svg-icon-sprite-example.png" width="450" alt=""/>
 </p>
 
+## Use Cases
+
+- include single-color icons from a sprite
+- fill icons dynamically via CSS
+- achieve hover/focus effects via CSS
+- scale icons dynamically
+
 ## Installation
 
 ```
@@ -47,22 +54,22 @@ To use your SVGs as a sprite you need to:
 
 Each time you add an icon, you need to run a script that generates the sprite. You might want to add it to your package.json:
 
-```javascript
+```json
 "scripts": {
-  "create-icon-sprite": "svg-symbols ./src/assets/icons > ./src/assets/sprites/sprite.svg"
+  "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
 }
 ```
 
-The used library [for sprite generation svg-symbols](https://www.npmjs.com/package/svg-symbols) is already included as a
+The used library [for sprite generation svg2sprite](https://github.com/mrmlnc/svg2sprite-cli) is already included as a
 dependency that can be executed right away:
 
 ```
 npm run create-icon-sprite
 ```
 
-__Note: you need to create an empty sprites folder before running the npm script__
+__Note: the fill and stroke properties are removed from the icon so they can be filled via CSS__
 
-By default the script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
+The script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
 `src/app/assets/sprites` using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/).
 
 ```
@@ -123,19 +130,16 @@ color: red;
 If you have another folder structure than above, you can pass both your input and output path using the npm script:
 
 ```
-svg-symbols sourcefolder > destination/filename.svg
+svg2sprite sourcefolder destination/filename.svg
 ```
-
-You can combine the `ng-svg-icon-sprite` module with any other sprite generation technology if you wish.
 
 ### Custom Styling
 
-To access inner SVG properties like `fill` or `stroke`, you need to use Angular's `::ng-deep` (former `/deep/`) selector in
+To access inner SVG properties like `fill` or `stroke`, you need to use Angular's `::ng-deep` selector in
 the host component and select the `use` tag inside the SVG:
 
 ```css
-/* host component styles */
-::ng-deep svg.icon use {
+.host-component ::ng-deep svg.icon use {
   fill: orange;
 }
 ```
@@ -143,12 +147,13 @@ the host component and select the `use` tag inside the SVG:
 or to access SVG properties like height or width:
 
 ```css
-/* host component styles */
-::ng-deep svg.icon {
+.host-component ::ng-deep svg.icon {
   height: 85px;
   width: 85px;
 }
 ```
+
+__Note: make sure your CSS selector is strong enough here__
 
 ### Scaling and Sizing
 
@@ -168,6 +173,19 @@ You need to set the `viewBox` property manually to match the size of the exporte
 Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
 additionally using [svgo](https://www.npmjs.com/package/svgo). If this doesn't help either
 [read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+
+### Combining with SVG images containing inline styles
+
+If you wish to combine the single-color icon pattern with SVGs that contain inline styles (i.e. multi-color) that should not be overridden by CSS,
+you will have to provide a separate sprite file that keeps the stroke and fill attributes:
+
+```json
+"scripts": {
+  "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+}
+```
+
+The generated sprite will preserve it's original styles, but you won't ne able to fill it via CSS.
 
 ## Browser Support (tested)
 - Chrome (63)
