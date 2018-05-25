@@ -47,22 +47,22 @@ To use your SVGs as a sprite you need to:
 
 Each time you add an icon, you need to run a script that generates the sprite. You might want to add it to your package.json:
 
-```javascript
+```json
 "scripts": {
-  "create-icon-sprite": "svg-symbols ./src/assets/icons > ./src/assets/sprites/sprite.svg"
+  "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke"
 }
 ```
 
-The used library [for sprite generation svg-symbols](https://www.npmjs.com/package/svg-symbols) is already included as a
+The used library [for sprite generation svg2sprite](https://github.com/mrmlnc/svg2sprite-cli) is already included as a
 dependency that can be executed right away:
 
 ```
 npm run create-icon-sprite
 ```
 
-__Note: you need to create an empty sprites folder before running the npm script__
+__Note: the fill and stroke properties are removed from the icon so they can be styled via CSS__
 
-By default the script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
+The script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
 `src/app/assets/sprites` using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/).
 
 ```
@@ -168,6 +168,18 @@ You need to set the `viewBox` property manually to match the size of the exporte
 Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
 additionally using [svgo](https://www.npmjs.com/package/svgo). If this doesn't help either
 [read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+
+### Combining with SVG images containing inline styles
+
+If you wish to combine the icon pattern with SVGs that contain inline styles that should not be overridden by CSS, you will have to provide another sprite file that keeps the stroke and fill attributes:
+
+```json
+"scripts": {
+  "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+}
+```
+
+The generated sprite will preserve it's original styles, but will not be styleable via CSS.
 
 ## Browser Support (tested)
 - Chrome (63)

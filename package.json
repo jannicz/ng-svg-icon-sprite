@@ -20,7 +20,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "create-package": "ng-packagr -p ng-package.json",
-    "create-icon-sprite": "svg-symbols ./src/assets/icons > ./src/assets/sprites/sprite.svg"
+    "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke",
+    "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
   },
   "dependencies": {
     "@angular/animations": ">4.0.0",
@@ -35,7 +36,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
-    "svg-symbols": "^1.0.4",
+    "svg2sprite-cli": "2.0.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
