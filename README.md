@@ -1,4 +1,4 @@
-# SVG icon sprite package for Angular 4+
+# SVG icon sprite package for Angular 6
 
 This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
 a solution for generating SVG sprites and a component for including them.
@@ -21,7 +21,7 @@ a solution for generating SVG sprites and a component for including them.
 ## Installation
 
 ```
-npm install ng-svg-icon-sprite --save
+npm i ng-svg-icon-sprite -S
 ```
 
 After installing the package you can import it into any application’s app.module.ts by simply including it in its
@@ -206,6 +206,11 @@ Older browsers do not support referencing to (external) SVG symbols. To make it 
 import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
+
+## Compatible Angular versions
+- 4.x
+- 5.x
+- 6.x 
 
 ## Local development vs. npm package
 
