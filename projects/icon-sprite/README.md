@@ -3,15 +3,15 @@
 This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
 a solution for generating SVG sprites and a component for including them.
 
-**If you want to upgrade from svg-icon-sprite <=1.0 please read the [upgrade instructions](#compatible-angular-versions)**
-
-<a href="https://jannicz.github.io/ng-svg-icon-sprite/">
-  <strong>See ng-svg-icon-sprite demo</strong>
-</a>
+**If you are upgrading from svg-icon-sprite 0.8 (or 1.0) to >= 1.1 please read the [UPGRADE INSTRUCTIONS](#compatible-angular-versions)**
 
 <p>
   <img src="svg-icon-sprite-example.png" width="450" alt=""/>
 </p>
+
+<a href="https://jannicz.github.io/ng-svg-icon-sprite/">
+  <strong>See ng-svg-icon-sprite demo</strong>
+</a>
 
 ## Use Cases
 
@@ -221,8 +221,8 @@ This library is optimized for Angular 6.x.
 
 ### Update Guide 0.8 and 1.0 -> 1.1
 
-* Insert svg2sprite into your package.json `"svg2sprite-cli": "2.0.0"`
-* Rename the import statement from `SvgIconSpriteModule` to `IconSpriteModule` in your @NgModule file(s)
+* Insert `svg2sprite` into your package.json `"svg2sprite-cli": "2.0.0"` in devDependencies and run `npm i`
+* Rename the import statement from `SvgIconSpriteModule` to `IconSpriteModule` in your `@NgModule` file(s)
 
 ### What if i still use Angular 4 or 5
 
