@@ -6,7 +6,7 @@ a solution for generating SVG sprites and a component for including them.
 **If you are upgrading from svg-icon-sprite 0.8 (or 1.0) to >= 1.1 please read the [UPGRADE INSTRUCTIONS](#compatible-angular-versions)**
 
 <p>
-  <img src="svg-icon-sprite-example.png" width="450" alt=""/>
+  <img src="../../svg-icon-sprite-example.png" width="450" alt=""/>
 </p>
 
 <a href="https://jannicz.github.io/ng-svg-icon-sprite/">
