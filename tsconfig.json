@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "icon-sprite": [
-        "dist/icon-sprite"
+      "ng-svg-icon-sprite": [
+        "dist/ng-svg-icon-sprite"
       ],
-      "icon-sprite/*": [
-        "dist/icon-sprite/*"
+      "ng-svg-icon-sprite/*": [
+        "dist/ng-svg-icon-sprite/*"
       ]
     }
   }

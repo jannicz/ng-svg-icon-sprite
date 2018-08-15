@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/icon-sprite",
+  "dest": "../../dist/ng-svg-icon-sprite",
   "lib": {
     "entryFile": "src/public_api.ts"
   }
