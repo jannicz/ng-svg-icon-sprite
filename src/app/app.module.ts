@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SvgIconSpriteModule } from './modules/svg-icon-sprite/svg-icon-sprite.module';
+import { IconSpriteModule } from 'icon-sprite';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { SvgIconSpriteModule } from './modules/svg-icon-sprite/svg-icon-sprite.m
   ],
   imports: [
     BrowserModule,
-    SvgIconSpriteModule
+    IconSpriteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

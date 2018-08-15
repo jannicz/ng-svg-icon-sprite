@@ -1,0 +1,15 @@
+<ng-container ngIf="!viewBox; else viewBoxTemplate">
+  <svg [attr.width]="width" [attr.height]="height || width" [attr.class]="classes">
+    <use [attr.xlink:href]="src"></use>
+  </svg>
+</ng-container>
+
+<ng-template #viewBoxTemplate>
+  <svg [attr.class]="classes"
+       [attr.width]="width"
+       [attr.height]="height || width"
+       [attr.viewBox]="viewBox"
+       [attr.preserveAspectRatio]="preserveAspectRatio">
+    <use [attr.xlink:href]="src"></use>
+  </svg>
+</ng-template>
