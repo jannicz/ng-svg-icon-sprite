@@ -23,13 +23,19 @@
   <h2>Usage</h2>
 
   <p>
-    install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; IconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it
+    Install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; IconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it
     in any <code>@NgModule</code> imports array.
   </p>
 
   <p>
-    run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>
+    Run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>
     directive like shown below.
+  </p>
+
+  <strong [attr.foo]="bar">Run development app (root project)</strong>
+
+  <p>
+    Execute <code>npm run build:lib</code> to generate the icon-sprite package. Then start the project via <code>npm run start</code>.
   </p>
 
   <h2>Basic Examples</h2>
@@ -67,6 +73,15 @@
   <ul class="inline">
     <li [style.color]="color">
       <svg-icon-sprite #iconSprite [viewBox]="'0 0 24 24'" [src]="'assets/sprites/sprite.svg#' + icon" [width]="width"></svg-icon-sprite>
+    </li>
+  </ul>
+
+  <h2>Custom SVG Attribute Example</h2>
+
+  <ul class="inline">
+    <li style="color: darkred;">
+      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'60px'" [attribute]="['focusable', 'false']"></svg-icon-sprite>
+      <span>custom attribute,<br><code>"focusable", "false"</code></span>
     </li>
   </ul>
 

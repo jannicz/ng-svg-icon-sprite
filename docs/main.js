@@ -4,7 +4,7 @@
 /*!*************************************************************!*\
   !*** ./dist/ng-svg-icon-sprite/fesm5/ng-svg-icon-sprite.js ***!
   \*************************************************************/
-/*! exports provided: IconSpriteService, IconSpriteComponent, IconSpriteModule */
+/*! exports provided: IconSpriteService, IconSpriteComponent, IconSpriteModule, ɵa */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteService", function() { return IconSpriteService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteComponent", function() { return IconSpriteComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteModule", function() { return IconSpriteModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return IconSpriteDirective; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
 
 
 /**
@@ -39,21 +42,15 @@ var IconSpriteService = /** @class */ (function () {
  */
 var IconSpriteComponent = /** @class */ (function () {
     function IconSpriteComponent() {
+        this.classes = 'icon';
         this.width = '100%';
         this.preserveAspectRatio = 'xMinYMax meet';
     }
-    /**
-     * @return {?}
-     */
-    IconSpriteComponent.prototype.ngOnInit = /**
-     * @return {?}
-     */
-    function () { };
     IconSpriteComponent.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
                     selector: 'svg-icon-sprite',
                     styles: [":host svg,:host use{fill:currentColor}"],
-                    template: "<ng-container ngIf=\"!viewBox; else viewBoxTemplate\">\n  <svg [attr.width]=\"width\" [attr.height]=\"height || width\" [attr.class]=\"classes\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-container>\n\n<ng-template #viewBoxTemplate>\n  <svg [attr.class]=\"classes\"\n       [attr.width]=\"width\"\n       [attr.height]=\"height || width\"\n       [attr.viewBox]=\"viewBox\"\n       [attr.preserveAspectRatio]=\"preserveAspectRatio\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-template>\n"
+                    template: "<ng-container *ngIf=\"!viewBox && !attribute\">\n  <svg [attr.class]=\"classes\"\n       [attr.width]=\"width\"\n       [attr.height]=\"height || width\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-container>\n\n<ng-container *ngIf=\"!viewBox && attribute\">\n  <svg [attr.class]=\"classes\"\n       [attr.width]=\"width\"\n       [attr.height]=\"height || width\"\n       IconSpriteAttr [attribute]=\"attribute\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-container>\n\n<ng-container *ngIf=\"viewBox && !attribute\">\n    <svg [attr.class]=\"classes\"\n       [attr.width]=\"width\"\n       [attr.height]=\"height || width\"\n       [attr.viewBox]=\"viewBox\"\n       [attr.preserveAspectRatio]=\"preserveAspectRatio\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-container>\n\n<ng-container *ngIf=\"viewBox && attribute\">\n    <svg [attr.class]=\"classes\"\n       [attr.width]=\"width\"\n       [attr.height]=\"height || width\"\n       [attr.viewBox]=\"viewBox\"\n       [attr.preserveAspectRatio]=\"preserveAspectRatio\"\n       IconSpriteAttr [attribute]=\"attribute\">\n    <use [attr.xlink:href]=\"src\"></use>\n  </svg>\n</ng-container>\n"
                 },] },
     ];
     /** @nocollapse */
@@ -64,9 +61,52 @@ var IconSpriteComponent = /** @class */ (function () {
         width: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
         height: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
         viewBox: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-        preserveAspectRatio: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+        preserveAspectRatio: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+        attribute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
     };
     return IconSpriteComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ */
+/**
+ * Set your own attribute key/value pairs on the generated SVG element, i.e. focusable="false"
+ */
+var IconSpriteDirective = /** @class */ (function () {
+    function IconSpriteDirective(renderer, el) {
+        this.renderer = renderer;
+        this.el = el;
+    }
+    /**
+     * @return {?}
+     */
+    IconSpriteDirective.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        if (this.attribute[0] && this.attribute[1]) {
+            this.renderer.setAttribute(this.el.nativeElement, this.attribute[0], this.attribute[1]);
+        }
+        else if (this.attribute[0]) {
+            this.renderer.setAttribute(this.el.nativeElement, this.attribute[0], '');
+        }
+    };
+    IconSpriteDirective.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                    selector: '[IconSpriteAttr]'
+                },] },
+    ];
+    /** @nocollapse */
+    IconSpriteDirective.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+    ]; };
+    IconSpriteDirective.propDecorators = {
+        attribute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+    };
+    return IconSpriteDirective;
 }());
 
 /**
@@ -78,8 +118,11 @@ var IconSpriteModule = /** @class */ (function () {
     }
     IconSpriteModule.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                    imports: [],
-                    declarations: [IconSpriteComponent],
+                    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]],
+                    declarations: [
+                        IconSpriteComponent,
+                        IconSpriteDirective
+                    ],
                     exports: [IconSpriteComponent]
                 },] },
     ];
@@ -98,7 +141,7 @@ var IconSpriteModule = /** @class */ (function () {
 
 
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmctc3ZnLWljb24tc3ByaXRlLmpzLm1hcCIsInNvdXJjZXMiOlsibmc6Ly9uZy1zdmctaWNvbi1zcHJpdGUvbGliL2ljb24tc3ByaXRlLnNlcnZpY2UudHMiLCJuZzovL25nLXN2Zy1pY29uLXNwcml0ZS9saWIvaWNvbi1zcHJpdGUuY29tcG9uZW50LnRzIiwibmc6Ly9uZy1zdmctaWNvbi1zcHJpdGUvbGliL2ljb24tc3ByaXRlLm1vZHVsZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbkBJbmplY3RhYmxlKHtcbiAgcHJvdmlkZWRJbjogJ3Jvb3QnXG59KVxuZXhwb3J0IGNsYXNzIEljb25TcHJpdGVTZXJ2aWNlIHtcblxuICBjb25zdHJ1Y3RvcigpIHsgfVxufVxuIiwiaW1wb3J0IHsgQ29tcG9uZW50LCBPbkluaXQsIElucHV0IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogJ3N2Zy1pY29uLXNwcml0ZScsXG4gIHN0eWxlczogW2A6aG9zdCBzdmcsOmhvc3QgdXNle2ZpbGw6Y3VycmVudENvbG9yfWBdLFxuICB0ZW1wbGF0ZTogYDxuZy1jb250YWluZXIgbmdJZj1cIiF2aWV3Qm94OyBlbHNlIHZpZXdCb3hUZW1wbGF0ZVwiPlxuICA8c3ZnIFthdHRyLndpZHRoXT1cIndpZHRoXCIgW2F0dHIuaGVpZ2h0XT1cImhlaWdodCB8fCB3aWR0aFwiIFthdHRyLmNsYXNzXT1cImNsYXNzZXNcIj5cbiAgICA8dXNlIFthdHRyLnhsaW5rOmhyZWZdPVwic3JjXCI+PC91c2U+XG4gIDwvc3ZnPlxuPC9uZy1jb250YWluZXI+XG5cbjxuZy10ZW1wbGF0ZSAjdmlld0JveFRlbXBsYXRlPlxuICA8c3ZnIFthdHRyLmNsYXNzXT1cImNsYXNzZXNcIlxuICAgICAgIFthdHRyLndpZHRoXT1cIndpZHRoXCJcbiAgICAgICBbYXR0ci5oZWlnaHRdPVwiaGVpZ2h0IHx8IHdpZHRoXCJcbiAgICAgICBbYXR0ci52aWV3Qm94XT1cInZpZXdCb3hcIlxuICAgICAgIFthdHRyLnByZXNlcnZlQXNwZWN0UmF0aW9dPVwicHJlc2VydmVBc3BlY3RSYXRpb1wiPlxuICAgIDx1c2UgW2F0dHIueGxpbms6aHJlZl09XCJzcmNcIj48L3VzZT5cbiAgPC9zdmc+XG48L25nLXRlbXBsYXRlPlxuYFxufSlcbmV4cG9ydCBjbGFzcyBJY29uU3ByaXRlQ29tcG9uZW50IGltcGxlbWVudHMgT25Jbml0IHtcblxuICBASW5wdXQoKSBwdWJsaWMgc3JjOiBzdHJpbmc7XG4gIEBJbnB1dCgpIHB1YmxpYyBjbGFzc2VzOiAnaWNvbic7XG4gIEBJbnB1dCgpIHB1YmxpYyB3aWR0aCA9ICcxMDAlJztcbiAgQElucHV0KCkgcHVibGljIGhlaWdodDogc3RyaW5nO1xuICBASW5wdXQoKSBwdWJsaWMgdmlld0JveDogc3RyaW5nO1xuICBASW5wdXQoKSBwdWJsaWMgcHJlc2VydmVBc3BlY3RSYXRpbyA9ICd4TWluWU1heCBtZWV0JztcblxuICBjb25zdHJ1Y3RvcigpIHsgfVxuXG4gIG5nT25Jbml0KCkge31cbn1cbiIsImltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBJY29uU3ByaXRlQ29tcG9uZW50IH0gZnJvbSAnLi9pY29uLXNwcml0ZS5jb21wb25lbnQnO1xuXG5ATmdNb2R1bGUoe1xuICBpbXBvcnRzOiBbXG4gIF0sXG4gIGRlY2xhcmF0aW9uczogW0ljb25TcHJpdGVDb21wb25lbnRdLFxuICBleHBvcnRzOiBbSWNvblNwcml0ZUNvbXBvbmVudF1cbn0pXG5leHBvcnQgY2xhc3MgSWNvblNwcml0ZU1vZHVsZSB7IH1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtJQU9FO0tBQWlCOztnQkFMbEIsVUFBVSxTQUFDO29CQUNWLFVBQVUsRUFBRSxNQUFNO2lCQUNuQjs7Ozs7NEJBSkQ7Ozs7Ozs7QUNBQTtJQStCRTtxQkFMd0IsTUFBTTttQ0FHUSxlQUFlO0tBRXBDOzs7O0lBRWpCLHNDQUFROzs7SUFBUixlQUFhOztnQkEvQmQsU0FBUyxTQUFDO29CQUNULFFBQVEsRUFBRSxpQkFBaUI7b0JBQzNCLE1BQU0sRUFBRSxDQUFDLHdDQUF3QyxDQUFDO29CQUNsRCxRQUFRLEVBQUUsMmdCQWVYO2lCQUNBOzs7OztzQkFHRSxLQUFLOzBCQUNMLEtBQUs7d0JBQ0wsS0FBSzt5QkFDTCxLQUFLOzBCQUNMLEtBQUs7c0NBQ0wsS0FBSzs7OEJBN0JSOzs7Ozs7O0FDQUE7Ozs7Z0JBR0MsUUFBUSxTQUFDO29CQUNSLE9BQU8sRUFBRSxFQUNSO29CQUNELFlBQVksRUFBRSxDQUFDLG1CQUFtQixDQUFDO29CQUNuQyxPQUFPLEVBQUUsQ0FBQyxtQkFBbUIsQ0FBQztpQkFDL0I7OzJCQVJEOzs7Ozs7Ozs7Ozs7Ozs7In0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmctc3ZnLWljb24tc3ByaXRlLmpzLm1hcCIsInNvdXJjZXMiOlsibmc6Ly9uZy1zdmctaWNvbi1zcHJpdGUvbGliL2ljb24tc3ByaXRlLnNlcnZpY2UudHMiLCJuZzovL25nLXN2Zy1pY29uLXNwcml0ZS9saWIvaWNvbi1zcHJpdGUuY29tcG9uZW50LnRzIiwibmc6Ly9uZy1zdmctaWNvbi1zcHJpdGUvbGliL2ljb24tc3ByaXRlLmRpcmVjdGl2ZS50cyIsIm5nOi8vbmctc3ZnLWljb24tc3ByaXRlL2xpYi9pY29uLXNwcml0ZS5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0YWJsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5ASW5qZWN0YWJsZSh7XG4gIHByb3ZpZGVkSW46ICdyb290J1xufSlcbmV4cG9ydCBjbGFzcyBJY29uU3ByaXRlU2VydmljZSB7XG5cbiAgY29uc3RydWN0b3IoKSB7IH1cbn1cbiIsImltcG9ydCB7IENvbXBvbmVudCwgSW5wdXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcblxuQENvbXBvbmVudCh7XG4gIHNlbGVjdG9yOiAnc3ZnLWljb24tc3ByaXRlJyxcbiAgc3R5bGVzOiBbYDpob3N0IHN2Zyw6aG9zdCB1c2V7ZmlsbDpjdXJyZW50Q29sb3J9YF0sXG4gIHRlbXBsYXRlOiBgPG5nLWNvbnRhaW5lciAqbmdJZj1cIiF2aWV3Qm94ICYmICFhdHRyaWJ1dGVcIj5cbiAgPHN2ZyBbYXR0ci5jbGFzc109XCJjbGFzc2VzXCJcbiAgICAgICBbYXR0ci53aWR0aF09XCJ3aWR0aFwiXG4gICAgICAgW2F0dHIuaGVpZ2h0XT1cImhlaWdodCB8fCB3aWR0aFwiPlxuICAgIDx1c2UgW2F0dHIueGxpbms6aHJlZl09XCJzcmNcIj48L3VzZT5cbiAgPC9zdmc+XG48L25nLWNvbnRhaW5lcj5cblxuPG5nLWNvbnRhaW5lciAqbmdJZj1cIiF2aWV3Qm94ICYmIGF0dHJpYnV0ZVwiPlxuICA8c3ZnIFthdHRyLmNsYXNzXT1cImNsYXNzZXNcIlxuICAgICAgIFthdHRyLndpZHRoXT1cIndpZHRoXCJcbiAgICAgICBbYXR0ci5oZWlnaHRdPVwiaGVpZ2h0IHx8IHdpZHRoXCJcbiAgICAgICBJY29uU3ByaXRlQXR0ciBbYXR0cmlidXRlXT1cImF0dHJpYnV0ZVwiPlxuICAgIDx1c2UgW2F0dHIueGxpbms6aHJlZl09XCJzcmNcIj48L3VzZT5cbiAgPC9zdmc+XG48L25nLWNvbnRhaW5lcj5cblxuPG5nLWNvbnRhaW5lciAqbmdJZj1cInZpZXdCb3ggJiYgIWF0dHJpYnV0ZVwiPlxuICAgIDxzdmcgW2F0dHIuY2xhc3NdPVwiY2xhc3Nlc1wiXG4gICAgICAgW2F0dHIud2lkdGhdPVwid2lkdGhcIlxuICAgICAgIFthdHRyLmhlaWdodF09XCJoZWlnaHQgfHwgd2lkdGhcIlxuICAgICAgIFthdHRyLnZpZXdCb3hdPVwidmlld0JveFwiXG4gICAgICAgW2F0dHIucHJlc2VydmVBc3BlY3RSYXRpb109XCJwcmVzZXJ2ZUFzcGVjdFJhdGlvXCI+XG4gICAgPHVzZSBbYXR0ci54bGluazpocmVmXT1cInNyY1wiPjwvdXNlPlxuICA8L3N2Zz5cbjwvbmctY29udGFpbmVyPlxuXG48bmctY29udGFpbmVyICpuZ0lmPVwidmlld0JveCAmJiBhdHRyaWJ1dGVcIj5cbiAgICA8c3ZnIFthdHRyLmNsYXNzXT1cImNsYXNzZXNcIlxuICAgICAgIFthdHRyLndpZHRoXT1cIndpZHRoXCJcbiAgICAgICBbYXR0ci5oZWlnaHRdPVwiaGVpZ2h0IHx8IHdpZHRoXCJcbiAgICAgICBbYXR0ci52aWV3Qm94XT1cInZpZXdCb3hcIlxuICAgICAgIFthdHRyLnByZXNlcnZlQXNwZWN0UmF0aW9dPVwicHJlc2VydmVBc3BlY3RSYXRpb1wiXG4gICAgICAgSWNvblNwcml0ZUF0dHIgW2F0dHJpYnV0ZV09XCJhdHRyaWJ1dGVcIj5cbiAgICA8dXNlIFthdHRyLnhsaW5rOmhyZWZdPVwic3JjXCI+PC91c2U+XG4gIDwvc3ZnPlxuPC9uZy1jb250YWluZXI+XG5gXG59KVxuZXhwb3J0IGNsYXNzIEljb25TcHJpdGVDb21wb25lbnQge1xuXG4gIEBJbnB1dCgpIHB1YmxpYyBzcmM6IHN0cmluZztcbiAgQElucHV0KCkgcHVibGljIGNsYXNzZXMgPSAnaWNvbic7XG4gIEBJbnB1dCgpIHB1YmxpYyB3aWR0aCA9ICcxMDAlJztcbiAgQElucHV0KCkgcHVibGljIGhlaWdodDogc3RyaW5nO1xuICBASW5wdXQoKSBwdWJsaWMgdmlld0JveDogc3RyaW5nO1xuICBASW5wdXQoKSBwdWJsaWMgcHJlc2VydmVBc3BlY3RSYXRpbyA9ICd4TWluWU1heCBtZWV0JztcbiAgQElucHV0KCkgcHVibGljIGF0dHJpYnV0ZTogW3N0cmluZywgc3RyaW5nXTtcblxuICBjb25zdHJ1Y3RvcigpIHsgfVxufVxuIiwiaW1wb3J0IHsgRGlyZWN0aXZlLCBFbGVtZW50UmVmLCBSZW5kZXJlcjIsIElucHV0LCBPbkluaXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcblxuLyoqXG4gKiBTZXQgeW91ciBvd24gYXR0cmlidXRlIGtleS92YWx1ZSBwYWlycyBvbiB0aGUgZ2VuZXJhdGVkIFNWRyBlbGVtZW50LCBpLmUuIGZvY3VzYWJsZT1cImZhbHNlXCJcbiAqL1xuQERpcmVjdGl2ZSh7XG4gIHNlbGVjdG9yOiAnW0ljb25TcHJpdGVBdHRyXSdcbn0pXG5leHBvcnQgY2xhc3MgSWNvblNwcml0ZURpcmVjdGl2ZSBpbXBsZW1lbnRzIE9uSW5pdCB7XG5cbiAgQElucHV0KCkgYXR0cmlidXRlOiBbc3RyaW5nLCBzdHJpbmddO1xuXG4gIGNvbnN0cnVjdG9yKFxuICAgIHB1YmxpYyByZW5kZXJlcjogUmVuZGVyZXIyLFxuICAgIHB1YmxpYyBlbDogRWxlbWVudFJlZlxuICApIHt9XG5cbiAgbmdPbkluaXQoKSB7XG4gIFx0aWYgKHRoaXMuYXR0cmlidXRlWzBdICYmIHRoaXMuYXR0cmlidXRlWzFdKSB7XG4gIFx0ICB0aGlzLnJlbmRlcmVyLnNldEF0dHJpYnV0ZSh0aGlzLmVsLm5hdGl2ZUVsZW1lbnQsIHRoaXMuYXR0cmlidXRlWzBdLCB0aGlzLmF0dHJpYnV0ZVsxXSk7XG4gIFx0fSBlbHNlIGlmICh0aGlzLmF0dHJpYnV0ZVswXSkge1xuICAgICAgdGhpcy5yZW5kZXJlci5zZXRBdHRyaWJ1dGUodGhpcy5lbC5uYXRpdmVFbGVtZW50LCB0aGlzLmF0dHJpYnV0ZVswXSwgJycpO1xuICAgIH1cbiAgfVxufVxuIiwiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7ICBcbmltcG9ydCB7IEljb25TcHJpdGVDb21wb25lbnQgfSBmcm9tICcuL2ljb24tc3ByaXRlLmNvbXBvbmVudCc7XG5pbXBvcnQgeyBJY29uU3ByaXRlRGlyZWN0aXZlIH0gZnJvbSAnLi9pY29uLXNwcml0ZS5kaXJlY3RpdmUnO1xuXG5ATmdNb2R1bGUoe1xuICBpbXBvcnRzOiBbQ29tbW9uTW9kdWxlXSxcbiAgZGVjbGFyYXRpb25zOiBbXG4gICAgSWNvblNwcml0ZUNvbXBvbmVudCxcbiAgICBJY29uU3ByaXRlRGlyZWN0aXZlXG4gIF0sXG4gIGV4cG9ydHM6IFtJY29uU3ByaXRlQ29tcG9uZW50XVxufSlcbmV4cG9ydCBjbGFzcyBJY29uU3ByaXRlTW9kdWxlIHsgfVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtJQU9FO0tBQWlCOztnQkFMbEIsVUFBVSxTQUFDO29CQUNWLFVBQVUsRUFBRSxNQUFNO2lCQUNuQjs7Ozs7NEJBSkQ7Ozs7Ozs7QUNBQTtJQXNERTt1QkFQMEIsTUFBTTtxQkFDUixNQUFNO21DQUdRLGVBQWU7S0FHcEM7O2dCQXBEbEIsU0FBUyxTQUFDO29CQUNULFFBQVEsRUFBRSxpQkFBaUI7b0JBQzNCLE1BQU0sRUFBRSxDQUFDLHdDQUF3QyxDQUFDO29CQUNsRCxRQUFRLEVBQUUsOHFDQXFDWDtpQkFDQTs7Ozs7c0JBR0UsS0FBSzswQkFDTCxLQUFLO3dCQUNMLEtBQUs7eUJBQ0wsS0FBSzswQkFDTCxLQUFLO3NDQUNMLEtBQUs7NEJBQ0wsS0FBSzs7OEJBcERSOzs7Ozs7O0FDQUE7Ozs7SUFZRSw2QkFDUyxVQUNBO1FBREEsYUFBUSxHQUFSLFFBQVE7UUFDUixPQUFFLEdBQUYsRUFBRTtLQUNQOzs7O0lBRUosc0NBQVE7OztJQUFSO1FBQ0MsSUFBSSxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxJQUFJLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEVBQUU7WUFDMUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxhQUFhLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7U0FDekY7YUFBTSxJQUFJLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEVBQUU7WUFDM0IsSUFBSSxDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxhQUFhLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQztTQUMxRTtLQUNGOztnQkFsQkYsU0FBUyxTQUFDO29CQUNULFFBQVEsRUFBRSxrQkFBa0I7aUJBQzdCOzs7O2dCQVArQixTQUFTO2dCQUFyQixVQUFVOzs7NEJBVTNCLEtBQUs7OzhCQVZSOzs7Ozs7O0FDQUE7Ozs7Z0JBS0MsUUFBUSxTQUFDO29CQUNSLE9BQU8sRUFBRSxDQUFDLFlBQVksQ0FBQztvQkFDdkIsWUFBWSxFQUFFO3dCQUNaLG1CQUFtQjt3QkFDbkIsbUJBQW1CO3FCQUNwQjtvQkFDRCxPQUFPLEVBQUUsQ0FBQyxtQkFBbUIsQ0FBQztpQkFDL0I7OzJCQVpEOzs7Ozs7Ozs7Ozs7Ozs7In0=
 
 /***/ }),
 
@@ -143,7 +186,7 @@ module.exports = "div ::ng-deep svg.some-icon-class {\n  height: 75px;\n  width:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>\n    {{ title }} <small>(package development app)</small>\n  </h1>\n\n  <p>\n    Angular package that provides both a solution for generating sprites and a component for including them.\n  </p>\n\n  <ul>\n    <li>\n      <a href=\"https://github.com/jannicz/ng-svg-icon-sprite\">\n        <strong>ng-svg-icon-sprite sources on Github</strong>\n      </a>\n    </li>\n    <li>\n      <a href=\"https://www.npmjs.com/package/ng-svg-icon-sprite\">\n        <strong>ng-svg-icon-sprite package on npm</strong>\n      </a>\n    </li>\n  </ul>\n\n  <h2>Usage</h2>\n\n  <p>\n    install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; IconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it\n    in any <code>@NgModule</code> imports array.\n  </p>\n\n  <p>\n    run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>\n    directive like shown below.\n  </p>\n\n  <h2>Basic Examples</h2>\n\n  <ul class=\"inline\">\n    <li style=\"color: darkred;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star'\" [width]=\"'100px'\"></svg-icon-sprite>\n      <span>red, 100px</span>\n    </li>\n    <li style=\"color: darkgreen;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#delete'\" [width]=\"'90px'\" [height]=\"'80px'\"></svg-icon-sprite>\n      <span>green, 90px</span>\n    </li>\n    <li>\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star'\" [classes]=\"'some-icon-class'\"></svg-icon-sprite>\n      <span>component styles by <code>::ng-deep</code><br>orange, 75px</span>\n    </li>\n  </ul>\n\n  <h2>ViewBox Example</h2>\n  <ul class=\"inline\">\n    <li style=\"color: magenta;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star-no-viewBox'\" [width]=\"'80px'\" [viewBox]=\"'0 0 24 24'\"></svg-icon-sprite>\n      <span>magenta 80px,<br>viewBox <code>'0 0 24 24'</code></span>\n    </li>\n  </ul>\n\n  <h2>Variable Example</h2>\n\n  <button (click)=\"changeIconPath(iconSprite.src)\">Change Icon Path</button>\n  <button (click)=\"changeIconSize(iconSprite.width)\">Size +</button>\n  <input #colorInput type=\"text\" value=\"red\">\n  <button (click)=\"changeIconColor(colorInput.value)\">Set color</button>\n\n  <ul class=\"inline\">\n    <li [style.color]=\"color\">\n      <svg-icon-sprite #iconSprite [viewBox]=\"'0 0 24 24'\" [src]=\"'assets/sprites/sprite.svg#' + icon\" [width]=\"width\"></svg-icon-sprite>\n    </li>\n  </ul>\n\n  <p>\n    Report bugs or feature requests on <a href=\"https://github.com/jannicz/ng-svg-icon-sprite/issues\">Github Issues</a>\n  </p>\n  <p>\n    <small>Copyright Jan Suwart, MIT license</small>\n  </p>\n</div>\n\n<!-- https://blog.angularindepth.com/creating-a-library-in-angular-6-87799552e7e5 -->\n<!-- https://blog.angularindepth.com/creating-a-library-in-angular-6-part-2-6e2bc1e14121 -->\n"
+module.exports = "<div class=\"container\">\n  <h1>\n    {{ title }} <small>(package development app)</small>\n  </h1>\n\n  <p>\n    Angular package that provides both a solution for generating sprites and a component for including them.\n  </p>\n\n  <ul>\n    <li>\n      <a href=\"https://github.com/jannicz/ng-svg-icon-sprite\">\n        <strong>ng-svg-icon-sprite sources on Github</strong>\n      </a>\n    </li>\n    <li>\n      <a href=\"https://www.npmjs.com/package/ng-svg-icon-sprite\">\n        <strong>ng-svg-icon-sprite package on npm</strong>\n      </a>\n    </li>\n  </ul>\n\n  <h2>Usage</h2>\n\n  <p>\n    Install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; IconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it\n    in any <code>@NgModule</code> imports array.\n  </p>\n\n  <p>\n    Run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>\n    directive like shown below.\n  </p>\n\n  <strong [attr.foo]=\"bar\">Run development app (root project)</strong>\n\n  <p>\n    Execute <code>npm run build:lib</code> to generate the icon-sprite package. Then start the project via <code>npm run start</code>.\n  </p>\n\n  <h2>Basic Examples</h2>\n\n  <ul class=\"inline\">\n    <li style=\"color: darkred;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star'\" [width]=\"'100px'\"></svg-icon-sprite>\n      <span>red, 100px</span>\n    </li>\n    <li style=\"color: darkgreen;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#delete'\" [width]=\"'90px'\" [height]=\"'80px'\"></svg-icon-sprite>\n      <span>green, 90px</span>\n    </li>\n    <li>\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star'\" [classes]=\"'some-icon-class'\"></svg-icon-sprite>\n      <span>component styles by <code>::ng-deep</code><br>orange, 75px</span>\n    </li>\n  </ul>\n\n  <h2>ViewBox Example</h2>\n  <ul class=\"inline\">\n    <li style=\"color: magenta;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star-no-viewBox'\" [width]=\"'80px'\" [viewBox]=\"'0 0 24 24'\"></svg-icon-sprite>\n      <span>magenta 80px,<br>viewBox <code>'0 0 24 24'</code></span>\n    </li>\n  </ul>\n\n  <h2>Variable Example</h2>\n\n  <button (click)=\"changeIconPath(iconSprite.src)\">Change Icon Path</button>\n  <button (click)=\"changeIconSize(iconSprite.width)\">Size +</button>\n  <input #colorInput type=\"text\" value=\"red\">\n  <button (click)=\"changeIconColor(colorInput.value)\">Set color</button>\n\n  <ul class=\"inline\">\n    <li [style.color]=\"color\">\n      <svg-icon-sprite #iconSprite [viewBox]=\"'0 0 24 24'\" [src]=\"'assets/sprites/sprite.svg#' + icon\" [width]=\"width\"></svg-icon-sprite>\n    </li>\n  </ul>\n\n  <h2>Custom SVG Attribute Example</h2>\n\n  <ul class=\"inline\">\n    <li style=\"color: darkred;\">\n      <svg-icon-sprite [src]=\"'assets/sprites/sprite.svg#star'\" [width]=\"'60px'\" [attribute]=\"['focusable', 'false']\"></svg-icon-sprite>\n      <span>custom attribute,<br><code>\"focusable\", \"false\"</code></span>\n    </li>\n  </ul>\n\n  <p>\n    Report bugs or feature requests on <a href=\"https://github.com/jannicz/ng-svg-icon-sprite/issues\">Github Issues</a>\n  </p>\n  <p>\n    <small>Copyright Jan Suwart, MIT license</small>\n  </p>\n</div>\n\n<!-- https://blog.angularindepth.com/creating-a-library-in-angular-6-87799552e7e5 -->\n<!-- https://blog.angularindepth.com/creating-a-library-in-angular-6-part-2-6e2bc1e14121 -->\n"
 
 /***/ }),
 
@@ -302,7 +345,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/janek/Desktop/Repositories/ng-svg-icon-sprite/src/main.ts */"./src/main.ts");
 
 
 /***/ })

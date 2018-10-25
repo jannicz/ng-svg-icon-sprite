@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  
 import { IconSpriteComponent } from './icon-sprite.component';
+import { IconSpriteDirective } from './icon-sprite.directive';
 
 @NgModule({
-  imports: [
+  imports: [CommonModule],
+  declarations: [
+    IconSpriteComponent,
+    IconSpriteDirective
   ],
-  declarations: [IconSpriteComponent],
   exports: [IconSpriteComponent]
 })
 export class IconSpriteModule { }
