@@ -1,9 +1,14 @@
 # SVG icon sprite package for Angular 6
 
-This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both
-a solution for generating SVG sprites and a component for including them.
+This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both a solution for generating SVG sprites and a component for including them.
 
-**If you are upgrading from svg-icon-sprite 0.8 (or 1.0) to >= 1.1 please read the [UPGRADE INSTRUCTIONS](#compatible-angular-versions)**
+## Updating from <=1.0 to >=1.1
+
+The support of the native package format brought breaking changes in 1.1, to update please do:
+
+* Insert `svg2sprite` into your package.json `"svg2sprite-cli": "2.0.0"` in devDependencies and run `npm i`
+* Rename the import statement from `SvgIconSpriteModule` to `IconSpriteModule` in your `@NgModule` file(s)
+
 
 <p>
   <img src="svg-icon-sprite-example.png" width="450" alt=""/>
@@ -16,8 +21,7 @@ a solution for generating SVG sprites and a component for including them.
 ## Use Cases
 
 - include single-color icons from a sprite
-- fill icons dynamically via CSS
-- achieve hover/focus effects via CSS
+- fill icons dynamically via CSS (i.e. hover/focus effects)
 - scale icons dynamically
 
 ## Installation
@@ -121,6 +125,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 - `classes` *optional* - class name for this icon, default is `icon`
 - `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (to be used if the viewBox of the SVG is missing)
 - `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox` (see SVG standard for details)
+- `attribute` - tuple containing key/value pair that should be added as an attribute on the SVG node, i.e. `"['focusable', 'false']"` becomes `<svg focusable="false">`
 
 ## Styling
 
@@ -194,7 +199,7 @@ you will have to provide a separate sprite file that keeps the stroke and fill a
 }
 ```
 
-The generated sprite will preserve it's original styles, but you won't ne able to fill it via CSS.
+The generated sprite will preserve it's original styles, but you won't be able to style it via CSS.
 
 ## Browser Support (tested)
 - Chrome (63)
@@ -217,16 +222,12 @@ svg4everybody();
 ```
 
 ## Compatible Angular versions
-This library is optimized for Angular 6.x. 
 
-### Update Guide 0.8 and 1.0 -> 1.1
+This library is optimized for Angular 6.x. If you still run Angular 4 or 5, please use ng-svg-icon-sprite in version 0.8 or below.
 
-* Insert `svg2sprite` into your package.json `"svg2sprite-cli": "2.0.0"` in devDependencies and run `npm i`
-* Rename the import statement from `SvgIconSpriteModule` to `IconSpriteModule` in your `@NgModule` file(s)
+## For Development
 
-### What if i still use Angular 4 or 5
-
-If you still run Angular 4 or 5, please use ng-svg-icon-sprite in version 0.8 or below.
+To serve the root project (ng-svg-icon-sprite-app) don't forget to execute `build:lib` first. Afterwards you can run `start`.
 
 ## Author & License
 - Jan Suwart | MIT License
