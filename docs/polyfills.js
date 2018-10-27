@@ -10349,7 +10349,7 @@ svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_19__();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/janek/Desktop/Repositories/ng-svg-icon-sprite/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

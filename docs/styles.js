@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/janek/Desktop/Repositories/ng-svg-icon-sprite/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/src/styles.css */"./src/styles.css");
 
 
 /***/ })
