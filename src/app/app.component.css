@@ -1,9 +1,0 @@
-div ::ng-deep svg.some-icon-class {
-  height: 75px;
-  width: 75px;
-  fill: orange; /* IE 11 support by polyfill */
-}
-
-div ::ng-deep svg.some-icon-class use {
-  fill: orange; /* evergreen browser symbol styling */
-}

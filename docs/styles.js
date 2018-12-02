@@ -1,13 +1,13 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./node_modules/postcss-loader/lib??embedded!./src/styles.css ***!
-  \**********************************************************************************************/
+/***/ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src/index.js?!./src/styles.css":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./src/styles.css ***!
+  \*****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "html {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 16px;\n  line-height: 1.5;\n  margin: 0;\n  color: #24292e;\n}\n.container {\n  max-width: 768px;\n  padding: 45px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  margin: 20px;\n  margin-left: auto;\n  margin-right: auto;\n}\nh1, h2, h3 {\n  padding-bottom: 0.3em;\n  border-bottom: 1px solid #ddd;\n  font-weight: 600;\n}\nh1 {\n  font-size: 2em;\n}\nh2 {\n  font-size: 1.5em;\n}\nh3 {\n  font-size: 1.25em;\n}\np {\n  margin-top: 5px;\n  margin-bottom: 15px;\n}\na {\n  color: steelblue;\n  text-decoration: none;\n}\nbutton, input, select {\n  font-size: 14px;\n  line-height: 1.5;\n}\nlabel {\n  font-size: 85%;\n  font-weight: 600;\n}\npre {\n  padding: 15px;\n  margin: 0;\n  border-radius: 3px;\n  font-size: 85%;\n  line-height: 1.45;\n  background-color: lavender;\n  font-family: Courier, monospace;\n  overflow: auto;\n}\ncode {\n  line-height: 1.45;\n  background-color: lavender;\n  font-family: Courier, monospace;\n}\nsmall {\n  font-size: 80%;\n  color: #333;\n}\nul.inline {\n  list-style: none;\n  padding: 0;\n}\nul.inline li {\n  display: inline-block;\n  padding: 30px;\n}\nul.inline li span {\n  display: block;\n}\n"
+module.exports = [[module.i, "html {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 16px;\n  line-height: 1.5;\n  margin: 0;\n  color: #24292e;\n}\n.container {\n  max-width: 768px;\n  padding: 45px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  margin: 20px;\n  margin-left: auto;\n  margin-right: auto;\n}\nh1, h2, h3 {\n  padding-bottom: 0.3em;\n  border-bottom: 1px solid #ddd;\n  font-weight: 600;\n}\nh1 {\n  font-size: 2em;\n}\nh2 {\n  font-size: 1.5em;\n}\nh3 {\n  font-size: 1.25em;\n}\np {\n  margin-top: 5px;\n  margin-bottom: 15px;\n}\na {\n  color: steelblue;\n  text-decoration: none;\n}\nbutton, input, select {\n  font-size: 14px;\n  line-height: 1.5;\n}\nlabel {\n  font-size: 85%;\n  font-weight: 600;\n}\npre {\n  padding: 15px;\n  margin: 0;\n  border-radius: 3px;\n  font-size: 85%;\n  line-height: 1.45;\n  background-color: lavender;\n  font-family: Courier, monospace;\n  overflow: auto;\n}\ncode {\n  line-height: 1.45;\n  background-color: lavender;\n  font-family: Courier, monospace;\n}\nsmall {\n  font-size: 80%;\n  color: #333;\n}\nul.inline {\n  list-style: none;\n  padding: 0;\n}\nul.inline li {\n  display: inline-block;\n  padding: 30px;\n}\nul.inline li span {\n  display: block;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsVUFBVTtFQUNWLFdBQVc7RUFDWCx1QkFBdUI7Q0FDeEI7QUFDRDtFQUNFLDBDQUEwQztFQUMxQyxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVixlQUFlO0NBQ2hCO0FBQ0Q7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztFQUNkLHVCQUF1QjtFQUN2QixtQkFBbUI7RUFDbkIsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixtQkFBbUI7Q0FDcEI7QUFDRDtFQUNFLHNCQUFzQjtFQUN0Qiw4QkFBOEI7RUFDOUIsaUJBQWlCO0NBQ2xCO0FBQ0Q7RUFDRSxlQUFlO0NBQ2hCO0FBQ0Q7RUFDRSxpQkFBaUI7Q0FDbEI7QUFDRDtFQUNFLGtCQUFrQjtDQUNuQjtBQUNEO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtDQUNyQjtBQUNEO0VBQ0UsaUJBQWlCO0VBQ2pCLHNCQUFzQjtDQUN2QjtBQUNEO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtDQUNsQjtBQUNEO0VBQ0UsZUFBZTtFQUNmLGlCQUFpQjtDQUNsQjtBQUNEO0VBQ0UsY0FBYztFQUNkLFVBQVU7RUFDVixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQiwyQkFBMkI7RUFDM0IsZ0NBQWdDO0VBQ2hDLGVBQWU7Q0FDaEI7QUFDRDtFQUNFLGtCQUFrQjtFQUNsQiwyQkFBMkI7RUFDM0IsZ0NBQWdDO0NBQ2pDO0FBQ0Q7RUFDRSxlQUFlO0VBQ2YsWUFBWTtDQUNiO0FBRUQ7RUFDRSxpQkFBaUI7RUFDakIsV0FBVztDQUNaO0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsY0FBYztDQUNmO0FBRUQ7RUFDRSxlQUFlO0NBQ2hCIiwiZmlsZSI6InNyYy9zdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaHRtbCB7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cbmJvZHkge1xuICBmb250LWZhbWlseTogSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBsaW5lLWhlaWdodDogMS41O1xuICBtYXJnaW46IDA7XG4gIGNvbG9yOiAjMjQyOTJlO1xufVxuLmNvbnRhaW5lciB7XG4gIG1heC13aWR0aDogNzY4cHg7XG4gIHBhZGRpbmc6IDQ1cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkZGQ7XG4gIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgbWFyZ2luOiAyMHB4O1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xufVxuaDEsIGgyLCBoMyB7XG4gIHBhZGRpbmctYm90dG9tOiAwLjNlbTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZGQ7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG59XG5oMSB7XG4gIGZvbnQtc2l6ZTogMmVtO1xufVxuaDIge1xuICBmb250LXNpemU6IDEuNWVtO1xufVxuaDMge1xuICBmb250LXNpemU6IDEuMjVlbTtcbn1cbnAge1xuICBtYXJnaW4tdG9wOiA1cHg7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG59XG5hIHtcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuYnV0dG9uLCBpbnB1dCwgc2VsZWN0IHtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBsaW5lLWhlaWdodDogMS41O1xufVxubGFiZWwge1xuICBmb250LXNpemU6IDg1JTtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbnByZSB7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIG1hcmdpbjogMDtcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xuICBmb250LXNpemU6IDg1JTtcbiAgbGluZS1oZWlnaHQ6IDEuNDU7XG4gIGJhY2tncm91bmQtY29sb3I6IGxhdmVuZGVyO1xuICBmb250LWZhbWlseTogQ291cmllciwgbW9ub3NwYWNlO1xuICBvdmVyZmxvdzogYXV0bztcbn1cbmNvZGUge1xuICBsaW5lLWhlaWdodDogMS40NTtcbiAgYmFja2dyb3VuZC1jb2xvcjogbGF2ZW5kZXI7XG4gIGZvbnQtZmFtaWx5OiBDb3VyaWVyLCBtb25vc3BhY2U7XG59XG5zbWFsbCB7XG4gIGZvbnQtc2l6ZTogODAlO1xuICBjb2xvcjogIzMzMztcbn1cblxudWwuaW5saW5lIHtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgcGFkZGluZzogMDtcbn1cblxudWwuaW5saW5lIGxpIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwYWRkaW5nOiAzMHB4O1xufVxuXG51bC5pbmxpbmUgbGkgc3BhbiB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuIl19 */", '', '']]
 
 /***/ }),
 
@@ -43,14 +43,17 @@ var isOldIE = memoize(function () {
 	return window && document && document.all && !window.atob;
 });
 
-var getTarget = function (target) {
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
   return document.querySelector(target);
 };
 
 var getElement = (function (fn) {
 	var memo = {};
 
-	return function(target) {
+	return function(target, parent) {
                 // If passing function in options, then use it for resolve "head" element.
                 // Useful for Shadow Root style i.e
                 // {
@@ -60,7 +63,7 @@ var getElement = (function (fn) {
                         return target();
                 }
                 if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target);
+			var styleTarget = getTarget.call(this, target, parent);
 			// Special case to return head of iframe instead of iframe itself
 			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
 				try {
@@ -201,7 +204,7 @@ function insertStyleElement (options, style) {
 	} else if (options.insertAt === "bottom") {
 		target.appendChild(style);
 	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
+		var nextSibling = getElement(options.insertAt.before, target);
 		target.insertBefore(style, nextSibling);
 	} else {
 		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
@@ -223,6 +226,13 @@ function createStyleElement (options) {
 
 	if(options.attrs.type === undefined) {
 		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
 	}
 
 	addAttrs(style, options.attrs);
@@ -251,12 +261,20 @@ function addAttrs (el, attrs) {
 	});
 }
 
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
 function addStyle (obj, options) {
 	var style, update, remove, result;
 
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
 
 	    if (result) {
 	    	// If transform returns a value, use that instead of the original css.
@@ -510,7 +528,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../node_modules/raw-loader!../node_modules/postcss-loader/lib??embedded!./styles.css */ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css");
+var content = __webpack_require__(/*! !../node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!../node_modules/postcss-loader/src??embedded!./styles.css */ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src/index.js?!./src/styles.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 

@@ -41,24 +41,32 @@
   <h2>Basic Examples</h2>
 
   <ul class="inline">
-    <li style="color: darkred;">
-      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'100px'"></svg-icon-sprite>
+    <li>
+      <div class="icon-examples-1">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'100px'"></svg-icon-sprite>
+      </div>
       <span>red, 100px</span>
     </li>
-    <li style="color: darkgreen;">
-      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete'" [width]="'90px'" [height]="'80px'"></svg-icon-sprite>
+    <li>
+      <div class="icon-examples-2">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete'" [width]="'90px'" [height]="'80px'"></svg-icon-sprite>
+      </div>
       <span>green, 90px</span>
     </li>
     <li>
-      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [classes]="'some-icon-class'"></svg-icon-sprite>
+      <div class="icon-examples-3">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [classes]="'some-icon-class'"></svg-icon-sprite>
+      </div>
       <span>component styles by <code>::ng-deep</code><br>orange, 75px</span>
     </li>
   </ul>
 
   <h2>ViewBox Example</h2>
   <ul class="inline">
-    <li style="color: magenta;">
-      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star-no-viewBox'" [width]="'80px'" [viewBox]="'0 0 24 24'"></svg-icon-sprite>
+    <li>
+      <div class="icon-examples-4">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star-no-viewBox'" [width]="'80px'" [viewBox]="'0 0 24 24'"></svg-icon-sprite>
+      </div>
       <span>magenta 80px,<br>viewBox <code>'0 0 24 24'</code></span>
     </li>
   </ul>
@@ -79,7 +87,7 @@
   <h2>Custom SVG Attribute Example</h2>
 
   <ul class="inline">
-    <li style="color: darkred;">
+    <li>
       <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'60px'" [attribute]="['focusable', 'false']"></svg-icon-sprite>
       <span>custom attribute,<br><code>"focusable", "false"</code></span>
     </li>

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'svg-icon-sprite',
-  styleUrls: ['./icon-sprite.component.css'],
+  styleUrls: ['./icon-sprite.component.scss'],
   templateUrl: './icon-sprite.component.html'
 })
 export class IconSpriteComponent {
