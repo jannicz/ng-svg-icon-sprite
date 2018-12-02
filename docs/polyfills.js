@@ -1,5 +1,28 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills"],{
 
+/***/ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js ***!
+  \**************************************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/es7/reflect */ "./node_modules/core-js/es7/reflect.js");
+/* harmony import */ var core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+
+
+/***/ }),
+
 /***/ "./node_modules/classlist.js/classList.js":
 /*!************************************************!*\
   !*** ./node_modules/classlist.js/classList.js ***!
@@ -8070,10 +8093,10 @@ Zone.__load_patch('ZoneAwarePromise', function (global, Zone, api) {
                 reject = rej;
             });
             function onResolve(value) {
-                promise && (promise = null || resolve(value));
+                promise && (promise =  false || resolve(value));
             }
             function onReject(error) {
-                promise && (promise = null || reject(error));
+                promise && (promise =  false || reject(error));
             }
             for (var _i = 0, values_1 = values; _i < values_1.length; _i++) {
                 var value = values_1[_i];
@@ -10262,14 +10285,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classlist_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(classlist_js__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var core_js_es6_reflect__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/es6/reflect */ "./node_modules/core-js/es6/reflect.js");
 /* harmony import */ var core_js_es6_reflect__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_es6_reflect__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! core-js/es7/reflect */ "./node_modules/core-js/es7/reflect.js");
-/* harmony import */ var core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(core_js_es7_reflect__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! web-animations-js */ "./node_modules/web-animations-js/web-animations.min.js");
-/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(web_animations_js__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! zone.js/dist/zone */ "./node_modules/zone.js/dist/zone.js");
-/* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! svg4everybody/dist/svg4everybody.js */ "./node_modules/svg4everybody/dist/svg4everybody.js");
-/* harmony import */ var svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! web-animations-js */ "./node_modules/web-animations-js/web-animations.min.js");
+/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(web_animations_js__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! zone.js/dist/zone */ "./node_modules/zone.js/dist/zone.js");
+/* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! svg4everybody/dist/svg4everybody.js */ "./node_modules/svg4everybody/dist/svg4everybody.js");
+/* harmony import */ var svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_18__);
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -10309,7 +10330,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
-
 /**
  * Web Animations `@angular/platform-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
@@ -10337,19 +10357,20 @@ __webpack_require__.r(__webpack_exports__);
  */
 /** IE10 and IE11 external SVG polyfill */
 
-svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_19__();
+svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_18__();
 
 
 /***/ }),
 
 /***/ 1:
-/*!********************************!*\
-  !*** multi ./src/polyfills.ts ***!
-  \********************************/
+/*!***************************************************************************************************************************!*\
+  !*** multi ./src/polyfills.ts ./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js ***!
+  \***************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/src/polyfills.ts */"./src/polyfills.ts");
+__webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/jan.suwart/Projects/ng-svg-icon-sprite/node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js */"./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js");
 
 
 /***/ })

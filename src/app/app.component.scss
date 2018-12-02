@@ -1,0 +1,55 @@
+@keyframes mymove {
+  0%   { padding-left: 0 }
+  50%  { padding-left: 3px }
+  75%  { padding-left: 0; }
+  100% { padding-left: -3px }
+}
+
+// Use color property for overriding default color and hover effect
+.icon-examples-1 {
+  color: darkred;
+  transition: transform ease-in-out 0.2s;
+
+  &:hover, &:focus {
+    color: red;
+    transform: rotate(20deg);
+  }
+}
+
+.icon-examples-2 {
+  color: darkgreen;
+  transition: color ease-in-out 0.2s;
+
+  &:hover, &:focus {
+    color: limegreen;
+  }
+}
+
+.icon-examples-3 {
+  transition: transform ease-in-out 0.2s;
+  transform-origin: left center;
+
+  &:hover, &:focus {
+    transform: scale(1.2);
+  }
+}
+
+.icon-examples-4 {
+  color: magenta;
+
+  &:hover, &:focus {
+    color: indigo;
+    transition: color ease-in-out 0.2s;
+    animation: mymove 0.2s infinite ease-in-out;
+  }
+}
+
+// Access the SVG via ::ng-deep selector
+div ::ng-deep svg.some-icon-class {
+  height: 75px;
+  width: 75px;
+}
+
+div ::ng-deep svg.some-icon-class use {
+  fill: orange; /* evergreen browser symbol styling */
+}
