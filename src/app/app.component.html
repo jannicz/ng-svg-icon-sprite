@@ -1,10 +1,161 @@
 <div class="container">
   <h1>
-    {{ title }} <small>(package development app)</small>
+    {{ title }}
   </h1>
 
   <p>
     Angular package that provides both a solution for generating sprites and a component for including them.
+  </p>
+
+
+  <h2>The Basics <small>(reference, width and styling)</small></h2>
+
+  <p>To use if you want to display the icons in original size. Just match the <code>[width]</code> and <code>[height]</code> with the width/height of the equivalent SVG properties.</p>
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row icon-examples-1">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'"></svg-icon-sprite>
+      </div>
+      <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'"&gt;&lt;/svg-icon&gt;
+
+.icon-example {{ '{' }}
+  color: darkred;
+{{ '}' }}</pre>
+    </li>
+    <li>
+      <div class="icon-row icon-examples-2">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'" [height]="'65px'"></svg-icon-sprite>
+      </div>
+      <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'" [height]="'65px'"&gt;&lt;/svg-icon&gt;</pre>
+    </li>
+    <li>
+      <div class="icon-row icon-examples-3">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100_viewbox'" [width]="'100px'" [classes]="'css-styled-icon'"></svg-icon-sprite>
+      </div>
+      <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [classes]="'css-styled-icon'" [width]="'100px'"&gt;&lt;/svg-icon&gt;
+
+.container ::ng-deep svg.css-styled-icon {{ '{' }}
+  use {{ '{' }}
+    fill: orange;
+    stroke: black;
+  {{ '}' }}
+{{ '}' }}</pre>
+    </li>
+  </ul>
+
+  <p>
+
+  </p>
+
+
+  <h2 id="scaling">Scaling <small>(using CSS transform)</small></h2>
+
+  <p>Use this pattern if you want to change the size of the original SVG. Apply same rules as above, wrap the SVG into a div and size it using CSS transforms.</p>
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row icon-examples-1">
+        <div class="icon-scale-down" style="padding-bottom: 20px;">
+          <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'"></svg-icon-sprite>
+        </div>
+      </div>
+      <pre>
+.icon-scale-down {{ '{' }}
+  // Scale down by 50%
+  transform: scale(0.5);
+{{ '}' }}
+      </pre>
+    </li>
+    <li>
+      <div class="icon-row icon-examples-4" style="height: 0;">
+        <div class="icon-scale-up">
+          <svg-icon-sprite [src]="'assets/sprites/sprite.svg#circle_24x24-viewbox'" [width]="'24px'"></svg-icon-sprite>
+        </div>
+      </div>
+      <pre>
+.icon-scale-up {{ '{' }}
+  // Scale up by 400%
+  transform: scale(4);
+{{ '}' }}
+      </pre>
+    </li>
+  </ul>
+
+  <h2 id="viewBox">Scaling <small>(using viewBox)</small></h2>
+
+  This is an alternative to the CSS scaling method presented above. Scaling via <code>viewBox</code> is <strong>less consistent across browsers</strong>.
+  The pattern depends on your SVG source file, whether it already contains a <code>viewBox</code> or not.
+  The following example SVGs with an original size of <code>100x100px</code> are scaled down by 50%.
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row icon-examples-2">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'" [viewBox]="'-50 -50 200 200'"></svg-icon-sprite>
+      </div>
+      <pre>
+&lt;!-- SVG source lacks a viewBox --&gt;
+&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'" [viewBox]="'-50 -50 200 200'"&gt;&lt;/svg-icon&gt;
+      </pre>
+    </li>
+    <li>
+      <div class="icon-row icon-examples-3">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100_viewbox'" [width]="'50px'" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
+      </div>
+      <pre>
+&lt;!-- SVG source contains a viewBox --&gt;
+&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100_viewbox'" [width]="'50px'" [viewBox]="'0 0 100 100'"&gt;&lt;/svg-icon&gt;
+      </pre>
+    </li>
+  </ul>
+
+
+  <h2 id="manipulation">Manipulation <small>(using HTML properties)</small></h2>
+
+  <button (click)="changeIconPath(iconSprite.src)">Change Icon Path</button>
+  <button [disabled]="iconSprite.width.split('px')[0] <= 20" (click)="changeIconSizeMinus(iconSprite.width)">Size -</button>
+  <button (click)="changeIconSizePlus(iconSprite.width)">Size +</button>
+  <input #colorInput type="text" value="blue">
+  <button (click)="changeIconColor(colorInput.value)">Set color</button>
+
+  <ul class="vertical">
+    <li class="icon-change-size">
+      <div class="icon-row" [style.color]="color">
+        <svg-icon-sprite #iconSprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
+      </div>
+      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width"&gt;&lt;/svg-icon&gt;</pre>
+    </li>
+  </ul>
+
+  <h2 id="attributes">Adding Custom SVG Attributes</h2>
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row">
+        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'" [attribute]="['focusable', 'false']"></svg-icon-sprite>
+      </div>
+      <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [attribute]="['focusable', 'false']"&gt;&lt;/svg-icon&gt;</pre>
+    </li>
+  </ul>
+
+  Adding <code>focusable="false"</code> will prevent browser focus on SVG element in IE11.
+
+  <h2 id="multicolor">Multicolor Icons</h2>
+
+  If you want to include an multicolor icon, you will have to provide it form a separate sprite file (where the fill and stroke attributes are not stripped).
+  Remember that you will not be able to overwrite styles via CSS.
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row">
+        <svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'" [width]="'200px'"></svg-icon-sprite>
+      </div>
+      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'"&gt;&lt;/svg-icon&gt;</pre>
+    </li>
+  </ul>
+
+  <p>
+    Report bugs or feature requests on <a href="https://github.com/jannicz/ng-svg-icon-sprite/issues">Github Issues</a>
   </p>
 
   <ul>
@@ -20,82 +171,6 @@
     </li>
   </ul>
 
-  <h2>Usage</h2>
-
-  <p>
-    Install <strong>ng-svg-icon-sprite</strong> and import the npm module via <code>import &#123; IconSpriteModule &#125; from 'ng-svg-icon-sprite';</code> and add it
-    in any <code>@NgModule</code> imports array.
-  </p>
-
-  <p>
-    Run <strong>npm run create-icon-sprite</strong> to create a sprite out of your SVG icons. Include the <code>svg-icon-sprite</code>
-    directive like shown below.
-  </p>
-
-  <strong [attr.foo]="bar">Run development app (root project)</strong>
-
-  <p>
-    Execute <code>npm run build:lib</code> to generate the icon-sprite package. Then start the project via <code>npm run start</code>.
-  </p>
-
-  <h2>Basic Examples</h2>
-
-  <ul class="inline">
-    <li>
-      <div class="icon-examples-1">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'100px'"></svg-icon-sprite>
-      </div>
-      <span>red, 100px</span>
-    </li>
-    <li>
-      <div class="icon-examples-2">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete'" [width]="'90px'" [height]="'80px'"></svg-icon-sprite>
-      </div>
-      <span>green, 90px</span>
-    </li>
-    <li>
-      <div class="icon-examples-3">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [classes]="'some-icon-class'"></svg-icon-sprite>
-      </div>
-      <span>component styles by <code>::ng-deep</code><br>orange, 75px</span>
-    </li>
-  </ul>
-
-  <h2>ViewBox Example</h2>
-  <ul class="inline">
-    <li>
-      <div class="icon-examples-4">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star-no-viewBox'" [width]="'80px'" [viewBox]="'0 0 24 24'"></svg-icon-sprite>
-      </div>
-      <span>magenta 80px,<br>viewBox <code>'0 0 24 24'</code></span>
-    </li>
-  </ul>
-
-  <h2>Variable Example</h2>
-
-  <button (click)="changeIconPath(iconSprite.src)">Change Icon Path</button>
-  <button (click)="changeIconSize(iconSprite.width)">Size +</button>
-  <input #colorInput type="text" value="red">
-  <button (click)="changeIconColor(colorInput.value)">Set color</button>
-
-  <ul class="inline">
-    <li [style.color]="color">
-      <svg-icon-sprite #iconSprite [viewBox]="'0 0 24 24'" [src]="'assets/sprites/sprite.svg#' + icon" [width]="width"></svg-icon-sprite>
-    </li>
-  </ul>
-
-  <h2>Custom SVG Attribute Example</h2>
-
-  <ul class="inline">
-    <li>
-      <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star'" [width]="'60px'" [attribute]="['focusable', 'false']"></svg-icon-sprite>
-      <span>custom attribute,<br><code>"focusable", "false"</code></span>
-    </li>
-  </ul>
-
-  <p>
-    Report bugs or feature requests on <a href="https://github.com/jannicz/ng-svg-icon-sprite/issues">Github Issues</a>
-  </p>
   <p>
     <small>Copyright Jan Suwart, MIT license</small>
   </p>

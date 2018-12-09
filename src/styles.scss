@@ -11,7 +11,7 @@ body {
   color: #24292e;
 }
 .container {
-  max-width: 768px;
+  max-width: 1024px;
   padding: 45px;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -50,12 +50,14 @@ label {
   font-weight: 600;
 }
 pre {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
+  border: 1px solid #777;
   border-radius: 3px;
   font-size: 85%;
   line-height: 1.45;
-  background-color: lavender;
+  background-color: #24292e;
+  color: white;
   font-family: Courier, monospace;
   overflow: auto;
 }
@@ -66,7 +68,30 @@ code {
 }
 small {
   font-size: 80%;
-  color: #333;
+  color: #555;
+}
+
+ul {
+  &.vertical {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 10px;
+      display: flex;
+
+      .icon-row {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+      }
+
+      pre {
+        width: 75%;
+        //max-height: 40px;
+      }
+    }
+  }
 }
 
 ul.inline {

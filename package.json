@@ -1,6 +1,6 @@
 {
   "name": "ng-svg-icon-sprite-app",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "license": "MIT",
   "author": "Jan Suwart",
   "description": "Angular 7+ package for generating and using inline SVG icons in your project",
@@ -18,7 +18,7 @@
     "build": "ng build",
     "build:lib": "ng build --prod icon-sprite",
     "build:all": "npm run build:lib && ng build",
-    "prebuild:lib": "cpr ./README.md ./projects/icon-sprite/README.md -o",
+    "prebuild:lib": "cpr ./README.md ./projects/icon-sprite/README.md -o && cpr ./LICENSE ./projects/icon-sprite/LICENSE -o",
     "postbuild:lib": "cpr ./projects/icon-sprite/svg-icon-sprite-example.png ./dist/ng-svg-icon-sprite/svg-icon-sprite-example.png -o",
     "test": "ng test",
     "lint": "ng lint",

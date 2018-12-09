@@ -8,16 +8,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title = 'SVG-Icon-Sprite';
 
-  public icon = 'delete';
-  public width = '64px';
+  public icon = 'star_100x100_viewbox';
+  public width = '100px';
   public color = 'red';
 
   changeIconPath(src) {
-    this.icon = src.split('#')[1] === 'delete' ? 'star' : 'delete';
+    this.icon = src.split('#')[1] === 'delete_70x70' ? 'star_100x100_viewbox' : 'delete_70x70';
   }
 
-  changeIconSize(width) {
-    this.width = Number(width.replace('px', '')) + 10 + 'px';
+  changeIconSizePlus(width) {
+    this.width = Number(width.replace('px', '')) + 15 + 'px';
+  }
+
+  changeIconSizeMinus(width) {
+    this.width = Number(width.replace('px', '')) - 15 + 'px';
   }
 
   changeIconColor(color) {

@@ -1,8 +1,8 @@
 # SVG icon sprite package for Angular 7
 
-This [npm module](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both a solution for generating SVG sprites and a component for including them.
+This [library](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both a solution for generating SVG sprites and a component for including them.
 
-## Updating to >=1.1
+## Updating to >1.1
 
 The support of the native package format brought breaking changes in 1.1, to update from <= 1.0 please do:
 
@@ -11,7 +11,7 @@ The support of the native package format brought breaking changes in 1.1, to upd
 
 
 <p>
-  <img src="svg-icon-sprite-example.png" width="450" alt=""/>
+  <img src="svg-icon-sprite-example.png" width="370" alt=""/>
 </p>
 
 <a href="https://jannicz.github.io/ng-svg-icon-sprite/">
@@ -154,15 +154,6 @@ the host component and select the `use` tag inside the SVG:
 }
 ```
 
-or to access SVG properties like height or width:
-
-```css
-.host-component ::ng-deep svg.icon {
-  height: 85px;
-  width: 85px;
-}
-```
-
 __Note: make sure your CSS selector is strong enough here__
 
 ### Scaling and Sizing
@@ -180,9 +171,11 @@ You need to set the `viewBox` property manually to match the size of the exporte
 ></svg-icon-sprite>
 ```
 
+See the viewBox [example section](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
+
 Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
-additionally using [svgo](https://www.npmjs.com/package/svgo). If this doesn't help either
-[read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+additionally using [svgo](https://www.npmjs.com/package/svgo). Try to remove the viewBox attribute from your SVG source files.
+If this doesn't help either [read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
 ### Combining with SVG images containing inline styles
 
@@ -217,11 +210,11 @@ import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
 
-## Compatible Angular versions
+## Compatibility
 
-This library is optimized for Angular 7.x. For older Angular versions use ng-svg-icon-sprite:
-- 1.2 (Angular 6)
-- 0.8 (Angular 4 or 5)
+This library is optimized for Angular 7.x. For older Angular versions use:
+- Angular 6: [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1)
+- Angular 4/5: [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0)
 
 ## Author & License
 - Jan Suwart | MIT License

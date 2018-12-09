@@ -1,24 +1,25 @@
 @keyframes mymove {
-  0%   { padding-left: 0 }
-  50%  { padding-left: 3px }
-  75%  { padding-left: 0; }
-  100% { padding-left: -3px }
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(2px); }
+  75%  { transform: translateX(0); }
+  100% { transform: translateX(-2px); }
 }
 
-// Use color property for overriding default color and hover effect
 .icon-examples-1 {
+  // Use color property for overriding default color and hover effect
   color: darkred;
   transition: transform ease-in-out 0.2s;
+  transform-origin: center center;
 
   &:hover, &:focus {
     color: red;
-    transform: rotate(20deg);
+    transform: rotate(12deg);
   }
 }
 
 .icon-examples-2 {
   color: darkgreen;
-  transition: color ease-in-out 0.2s;
+  transition: color ease-in-out 0.4s;
 
   &:hover, &:focus {
     color: limegreen;
@@ -27,10 +28,10 @@
 
 .icon-examples-3 {
   transition: transform ease-in-out 0.2s;
-  transform-origin: left center;
+  transform-origin: center center;
 
   &:hover, &:focus {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
@@ -40,16 +41,37 @@
   &:hover, &:focus {
     color: indigo;
     transition: color ease-in-out 0.2s;
-    animation: mymove 0.2s infinite ease-in-out;
+    animation: mymove 0.3s infinite linear;
   }
 }
 
-// Access the SVG via ::ng-deep selector
-div ::ng-deep svg.some-icon-class {
-  height: 75px;
-  width: 75px;
+.icon-scale-down {
+  // Scale down by 50%
+  transform: scale(0.5);
 }
 
-div ::ng-deep svg.some-icon-class use {
-  fill: orange; /* evergreen browser symbol styling */
+.icon-scale-up {
+  // Scale up by 400%
+  transform: scale(4);
+}
+
+// Access the SVG via ::ng-deep selector, does not work in Firefox
+.container {
+  ::ng-deep {
+    svg.css-styled-icon {
+      use {
+        fill: orange; /* evergreen browser symbol styling */
+        stroke: black;
+      }
+    }
+  }
+}
+
+.icon-change-size {
+  ::ng-deep {
+    svg {
+      transition: all linear 0.2s;
+      transform-origin: top center;
+    }
+  }
 }

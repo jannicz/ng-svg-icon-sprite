@@ -4,7 +4,7 @@ import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
  * Set your own attribute key/value pairs on the generated SVG element, i.e. focusable="false"
  */
 @Directive({
-  selector: '[IconSpriteAttr]'
+  selector: '[svgIconSpriteAttr]'
 })
 export class IconSpriteDirective implements OnInit {
 
@@ -16,9 +16,9 @@ export class IconSpriteDirective implements OnInit {
   ) {}
 
   ngOnInit() {
-  	if (this.attribute[0] && this.attribute[1]) {
-  	  this.renderer.setAttribute(this.el.nativeElement, this.attribute[0], this.attribute[1]);
-  	} else if (this.attribute[0]) {
+    if (this.attribute[0] && this.attribute[1]) {
+      this.renderer.setAttribute(this.el.nativeElement, this.attribute[0], this.attribute[1]);
+    } else if (this.attribute[0]) {
       this.renderer.setAttribute(this.el.nativeElement, this.attribute[0], '');
     }
   }
