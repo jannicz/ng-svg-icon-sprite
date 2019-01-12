@@ -2,27 +2,19 @@
 
 This [library](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both a solution for generating SVG sprites and a component for including them.
 
-## Updating to >1.1
+## Demo
 
-The support of the native package format brought breaking changes in 1.1, to update from <= 1.0 please do:
-
-* Insert `svg2sprite` into your package.json `"svg2sprite-cli": "2.0.0"` in devDependencies and run `npm i`
-* Rename the import statement from `SvgIconSpriteModule` to `IconSpriteModule` in your `@NgModule` file(s)
-
-
-<p>
-  <img src="svg-icon-sprite-example.png" width="370" alt=""/>
-</p>
+![Demo gif animation](svg-icon-sprite-anim.gif)
 
 <a href="https://jannicz.github.io/ng-svg-icon-sprite/">
-  <strong>See ng-svg-icon-sprite demo</strong>
+  Try out the ng-svg-icon-sprite demo
 </a>
 
 ## Use Cases
 
 - include single-color icons from a sprite
-- fill icons dynamically via CSS (i.e. hover, focus effects)
-- scale icons dynamically
+- fill and scale icons dynamically via CSS (i.e. hover, focus effects)
+- meet accessibility requirements for inline SVGs
 
 ## Installation
 
@@ -118,10 +110,11 @@ Now you can include icons by using the `svg-icon-sprite` component directive:
 the name of the sprite and `icon` is the filename of the svg icon.
 - `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
 - `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
-- `classes` *optional* - class name for this icon, default is `icon`
-- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (to be used if the viewBox of the SVG is missing)
-- `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox` (see SVG standard for details)
-- `attribute` - tuple containing key/value pair that should be added as an attribute on the SVG node, i.e. `"['focusable', 'false']"` becomes `<svg focusable="false">`
+- `classes` *optional* - class name(s) for this icon, default is `icon`
+- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (used for scaling up/down)
+- `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox`
+- `title` - *optional* - text string that will be rendered into a title tag as the first child of the SVG node
+- `attribute` - *optional* - tuple or array of tuples containing key/value pair that should be added as an attribute on the SVG node, i.e. `"['aria-hidden', 'true']"` becomes `<svg aria-hidden="true">`
 
 ## Styling
 
@@ -173,9 +166,7 @@ You need to set the `viewBox` property manually to match the size of the exporte
 
 See the viewBox [example section](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
 
-Still having trouble with scaling or sizing? Try to clean your SVG icons before processing them into sprites by
-additionally using [svgo](https://www.npmjs.com/package/svgo). Try to remove the viewBox attribute from your SVG source files.
-If this doesn't help either [read this article](https://css-tricks.com/scale-svg/) about SVG scaling.
+Still having trouble with scaling or sizing? Read [this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
 ### Combining with SVG images containing inline styles
 
@@ -210,9 +201,29 @@ import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
 
+## Accessibility
+
+In order to support screen readers and make the icons meaningful, you can use following patters:
+- add a `title` with descriptive text ([see demo](https://jannicz.github.io/ng-svg-icon-sprite/#a11y))
+- optionally reference the title node using `aria-labelledby=”icon-title”`
+- optionally set the node's `role` to image (`role=”img”`)
+
+```html
+<svg-icon-sprite
+  [src]="'assets/sprites/sprite.svg#star'"
+  [title]="'Some title text'"
+  [attribute]="[['aria-labelledby', 'star-title'], ['role', 'img']]"
+></svg-icon-sprite>
+```
+
+If you want to prevent the icon from being accessed by screen readers (i.e if you already have a descriptive text somewhere else),
+set the `attribute` of `['aria-hidden', 'true']` instead.
+
+Or use combinations of several methods to achieve better results, like described in this [article](https://css-tricks.com/accessible-svgs/).
+
 ## Compatibility
 
-This library is optimized for Angular 7.x. For older Angular versions use:
+This library is optimized for Angular 7.x. You can use older package versions that are compatible with:
 - Angular 6: [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1)
 - Angular 4/5: [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0)
 
