@@ -11,11 +11,9 @@ body {
   color: #24292e;
 }
 .container {
-  max-width: 1024px;
-  padding: 45px;
-  border: 1px solid #ddd;
+  max-width: 1200px;
+  padding: 0 8% 0 8%;
   border-radius: 3px;
-  margin: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -52,12 +50,12 @@ label {
 pre {
   padding: 10px;
   margin: 0;
-  border: 1px solid #777;
+  border: 1px solid #999;
   border-radius: 3px;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #24292e;
-  color: white;
+  background-color: lightgoldenrodyellow;
+  color: darkslategrey;
   font-family: Courier, monospace;
   overflow: auto;
 }

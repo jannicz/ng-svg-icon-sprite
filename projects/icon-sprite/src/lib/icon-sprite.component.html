@@ -2,6 +2,7 @@
   <svg [attr.class]="classes"
        [attr.width]="width"
        [attr.height]="height || width">
+    <title *ngIf="title" [attr.id]="src.split('#')[1] + '-title'">{{title}}</title>
     <use [attr.xlink:href]="src"></use>
   </svg>
 </ng-container>
@@ -11,27 +12,30 @@
        [attr.width]="width"
        [attr.height]="height || width"
        svgIconSpriteAttr [attribute]="attribute">
+    <title *ngIf="title" [attr.id]="src.split('#')[1] + '-title'">{{title}}</title>
     <use [attr.xlink:href]="src"></use>
   </svg>
 </ng-container>
 
 <ng-container *ngIf="viewBox && !attribute">
-    <svg [attr.class]="classes"
+  <svg [attr.class]="classes"
        [attr.width]="width"
        [attr.height]="height || width"
        [attr.viewBox]="viewBox"
        [attr.preserveAspectRatio]="preserveAspectRatio">
+    <title *ngIf="title" [attr.id]="src.split('#')[1] + '-title'">{{title}}</title>
     <use [attr.xlink:href]="src"></use>
   </svg>
 </ng-container>
 
 <ng-container *ngIf="viewBox && attribute">
-    <svg [attr.class]="classes"
+  <svg [attr.class]="classes"
        [attr.width]="width"
        [attr.height]="height || width"
        [attr.viewBox]="viewBox"
        [attr.preserveAspectRatio]="preserveAspectRatio"
        svgIconSpriteAttr [attribute]="attribute">
+    <title *ngIf="title" [attr.id]="src.split('#')[1] + '-title'">{{title}}</title>
     <use [attr.xlink:href]="src"></use>
   </svg>
 </ng-container>

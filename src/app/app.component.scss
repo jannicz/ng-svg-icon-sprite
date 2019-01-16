@@ -36,12 +36,19 @@
 }
 
 .icon-examples-4 {
-  color: magenta;
+  color: darkred;
 
   &:hover, &:focus {
-    color: indigo;
-    transition: color ease-in-out 0.2s;
-    animation: mymove 0.3s infinite linear;
+    color: brown;
+  }
+}
+
+.icon-examples-5 {
+  color: darkorange;
+  transition: color ease-in-out 0.1s;
+
+  &:hover, &:focus {
+    color: darkgoldenrod;
   }
 }
 
@@ -51,8 +58,8 @@
 }
 
 .icon-scale-up {
-  // Scale up by 400%
-  transform: scale(4);
+  // Scale up by 500%
+  transform: scale(5);
 }
 
 // Access the SVG via ::ng-deep selector, does not work in Firefox

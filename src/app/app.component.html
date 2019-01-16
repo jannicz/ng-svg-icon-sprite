@@ -55,7 +55,7 @@
 
   <ul class="vertical">
     <li>
-      <div class="icon-row icon-examples-1">
+      <div class="icon-row icon-examples-2">
         <div class="icon-scale-down" style="padding-bottom: 20px;">
           <svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'"></svg-icon-sprite>
         </div>
@@ -75,8 +75,8 @@
       </div>
       <pre>
 .icon-scale-up {{ '{' }}
-  // Scale up by 400%
-  transform: scale(4);
+  // Scale up by 500%
+  transform: scale(5);
 {{ '}' }}
       </pre>
     </li>
@@ -123,7 +123,7 @@
       <div class="icon-row" [style.color]="color">
         <svg-icon-sprite #iconSprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
       </div>
-      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width"&gt;&lt;/svg-icon&gt;</pre>
+      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width" [viewBox]="'0 0 100 100'"&gt;&lt;/svg-icon&gt;</pre>
     </li>
   </ul>
 
@@ -140,6 +140,30 @@
 
   Adding <code>focusable="false"</code> will prevent browser focus on SVG element in IE11.
 
+  <h2 id="a11y">Accessible example <small>(meaningful icon pattern)</small></h2>
+
+  <ul class="vertical">
+    <li>
+      <div class="icon-row icon-examples-5">
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite.svg#star_100x100'"
+          [width]="'100px'"
+          [title]="'Orange star'"
+          [attribute]="[['aria-labelledby', 'star_100x100-title'], ['role', 'img']]"></svg-icon-sprite>
+      </div>
+      <pre>
+&lt;svg-icon-sprite
+      [src]="'assets/sprites/sprite.svg#star_100x100'"
+      [title]="'Orange star'"
+      [attribute]="[['aria-labelledby', 'star_100x100-title'], ['role', 'img']]"
+&gt;&lt;/svg-icon&gt;
+      </pre>
+    </li>
+  </ul>
+
+  Adding <code>[title]="'Orange star'"</code> will render <code>&lt;title id="star_100x100-title"&gt;Orange star&lt;/title&gt;</code> as the first child of the SVG node and serve as alternative text for screen readers.
+  To improve support, you can additionally reference the title's node via <code>'aria-labelledby'</code> using the title's generated id <code>star_100x100-title</code> and set the <code>role</code> to <code>img</code>.
+
   <h2 id="multicolor">Multicolor Icons</h2>
 
   If you want to include an multicolor icon, you will have to provide it form a separate sprite file (where the fill and stroke attributes are not stripped).
@@ -148,7 +172,7 @@
   <ul class="vertical">
     <li>
       <div class="icon-row">
-        <svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'" [width]="'200px'"></svg-icon-sprite>
+        <svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'" [width]="'250px'"></svg-icon-sprite>
       </div>
       <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'"&gt;&lt;/svg-icon&gt;</pre>
     </li>

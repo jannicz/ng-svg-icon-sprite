@@ -13,7 +13,8 @@ export class IconSpriteComponent {
   @Input() public height: string;
   @Input() public viewBox: string;
   @Input() public preserveAspectRatio = 'xMinYMax meet';
-  @Input() public attribute: [string, string];
+  @Input() public attribute: [string, string] | Array<[string, string]>;
+  @Input() public title: string;
 
   constructor() { }
 }
