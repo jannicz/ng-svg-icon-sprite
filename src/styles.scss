@@ -86,11 +86,21 @@ ul {
 
       pre {
         width: 75%;
-        //max-height: 40px;
+      }
+
+      .pre-vertical {
+        width: 75%;
+        flex-direction: column;
+
+        pre {
+          width: auto;
+          margin-bottom: 5px;
+        }
       }
     }
   }
 }
+
 
 ul.inline {
   list-style: none;
