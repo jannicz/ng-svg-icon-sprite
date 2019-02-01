@@ -17,14 +17,14 @@
     "start": "ng serve",
     "build": "ng test icon-sprite --browsers=ChromeHeadless --watch=false && ng build",
     "build:lib": "ng build --prod icon-sprite",
-    "build:all": "npm run build:lib && ng build",
+    "build:all": "npm run build:lib && npm run build",
     "prebuild:lib": "cpr ./README.md ./projects/icon-sprite/README.md -o && cpr ./LICENSE ./projects/icon-sprite/LICENSE -o",
     "postbuild:lib": "cpr ./projects/icon-sprite/svg-icon-sprite-anim.gif ./dist/ng-svg-icon-sprite/svg-icon-sprite-anim.gif -o",
     "test": "ng test icon-sprite --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
-    "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+    "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
+    "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
   },
   "private": true,
   "dependencies": {

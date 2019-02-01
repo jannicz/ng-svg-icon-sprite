@@ -18,7 +18,7 @@ This library provides both a solution for generating SVG sprites and a [module](
 
 ## Installation
 
-After installing the package via `npm i ng-svg-icon-sprite -D` as dev dependency you can import it into
+After installing the package via `npm i ng-svg-icon-sprite -S` as dependency you can import it into
 any application’s app.module.ts by simply including it in its `@NgModule` imports array:
 
 ```javascript
@@ -58,14 +58,14 @@ Each time you add an icon, you need to run the script generating the sprite. You
 
 ```json
 "scripts": {
-  "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
+  "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
 }
 ```
 
 now execute the script:
 
 ```
-npm run create-icon-sprite
+npm run generate:svg-sprite
 ```
 
 __Note: the fill and stroke properties are removed so the SVG can be filled via CSS. If don't need to apply color changes on your icons,
@@ -176,7 +176,7 @@ you will have to provide a separate sprite file that keeps the stroke and fill a
 
 ```json
 "scripts": {
-  "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+  "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
 }
 ```
 
@@ -184,7 +184,7 @@ The generated sprite will preserve it's original styles, but you won't be able t
 
 ### Setting a default sprite path for all icons
 
-If your app only uses one single sprite source, you can set it's path via the icon sprite service:
+If your app uses one main sprite source, you can set it's path via the icon sprite service:
 
 ```javascript
 // In your app.component import the service
@@ -205,8 +205,7 @@ ngOnInit() {
 <svg-icon-sprite [src]="'star'"></svg-icon-sprite>
 ```
 
-If a path is set via the service and in addition to that another path is passed into the icon
-component, the latter will override the default.
+Doing so you will still be able override the default path by using the full syntax for particular icons that should use a different sprite file.
 
 ## Browser Support
 - Chrome (63)
@@ -248,8 +247,8 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 7.x. For Angular 6 use [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1)
-and for Angular 4/5 use [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
+This library is optimized for Angular 7. For Angular 6 use [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1),
+for Angular 4/5 use [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
 
 ## Author & License
 - Jan Suwart | MIT License
