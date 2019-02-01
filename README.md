@@ -1,6 +1,6 @@
 # SVG icon sprite component for Angular 7
 
-This [library](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular package format provides both a solution for generating SVG sprites and a component for including them.
+This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
 ## Demo
 
@@ -18,7 +18,7 @@ This [library](https://www.npmjs.com/package/ng-svg-icon-sprite) in Angular pack
 
 ## Installation
 
-After installing the package via `npm i ng-svg-icon-sprite -D` as dev dependency you can import it into
+After installing the package via `npm i ng-svg-icon-sprite -S` as dependency you can import it into
 any application’s app.module.ts by simply including it in its `@NgModule` imports array:
 
 ```javascript
@@ -39,10 +39,10 @@ export class AppModule { }
 
 ## Usage
 
-To use your SVGs as a sprite you need to:
+To use your SVGs from a sprite you need to:
 
-1. Generate a SVG sprite using a script
-2. Include the `svg-icon-sprite` component with the proper sprite path and SVG name
+1. Convert your SVG icons into a sprite using a script
+2. Include the `svg-icon-sprite` component with the sprite path and the icon name
 
 ### Step 1: Generate the sprite
 
@@ -58,20 +58,21 @@ Each time you add an icon, you need to run the script generating the sprite. You
 
 ```json
 "scripts": {
-  "create-icon-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
+  "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
 }
 ```
 
 now execute the script:
 
 ```
-npm run create-icon-sprite
+npm run generate:svg-sprite
 ```
 
-__Note: the fill and stroke properties are removed from the icon so they can be filled via CSS__
+__Note: the fill and stroke properties are removed so the SVG can be filled via CSS. If don't need to apply color changes on your icons,
+go for the multi-color pattern [described below](#user-content-dealing-with-multi-color-svgs-containing-inline-styles)__
 
-The script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
-`src/app/assets/sprites` using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/).
+Regardless of the method, the script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
+`src/app/assets/sprites` using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/):
 
 ```
 app
@@ -164,31 +165,54 @@ You need to set the `viewBox` property manually to match the size of the exporte
 ></svg-icon-sprite>
 ```
 
-See the viewBox [example section](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
+See the viewBox [example](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
 
 Still having trouble with scaling or sizing? Read [this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
-### Combining with SVG images containing inline styles
+### Dealing with multi color SVGs containing inline styles
 
 If you wish to combine the single-color icon pattern with SVGs that contain inline styles (i.e. multi-color) that should not be overridden by CSS,
 you will have to provide a separate sprite file that keeps the stroke and fill attributes:
 
 ```json
 "scripts": {
-  "create-image-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+  "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
 }
 ```
 
-The generated sprite will preserve it's original styles, but you won't be able to style it via CSS.
+The generated sprite will preserve it's original styles, but you won't be able to style it via CSS, [see demo](https://jannicz.github.io/ng-svg-icon-sprite/#multicolor).
 
-## Browser Support (tested)
+### Setting a default sprite path for all icons
+
+If your app uses one main sprite source, you can set it's path via the icon sprite service:
+
+```javascript
+// In your app.component import the service
+import { IconSpriteService } from 'ng-svg-icon-sprite';
+
+// Inject it
+constructor(private iconSpriteService: IconSpriteService) {}
+
+// And set the path
+ngOnInit() {
+  this.iconSpriteService.setPath('assets/sprites/sprite.svg');
+}
+```
+
+[Like in the demo](https://jannicz.github.io/ng-svg-icon-sprite/#defaultpath), you can now leave out the path and just provide the icon name.
+
+```html
+<svg-icon-sprite [src]="'star'"></svg-icon-sprite>
+```
+
+Doing so you will still be able override the default path by using the full syntax for particular icons that should use a different sprite file.
+
+## Browser Support
 - Chrome (63)
 - Firefox (57)
 - Safari 11
 - Edge
 - IE 11 (with polyfill, see below)
-
-Check the [demo](https://jannicz.github.io/ng-svg-icon-sprite/) if it meets your requirements before using it.
 
 ### Polyfill for IE11 (and comparable)
 
@@ -196,7 +220,7 @@ Older browsers do not support referencing to (external) SVG symbols. To make it 
 [svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
 
 ```javascript
-// Import and execute in polyfills.ts file
+// Add the node module, import and execute it in polyfills.ts
 import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
 svg4everybody();
 ```
@@ -223,9 +247,8 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 7.x. You can use older package versions that are compatible with:
-- Angular 6: [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1)
-- Angular 4/5: [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0)
+This library is optimized for Angular 7. For Angular 6 use [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1),
+for Angular 4/5 use [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
 
 ## Author & License
 - Jan Suwart | MIT License

@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { IconSpriteComponent } from './icon-sprite.component';
 import { IconSpriteDirective } from './icon-sprite.directive';
+import { IconSpriteService } from './icon-sprite.service';
 
 describe('IconSpriteComponent', () => {
   let component: IconSpriteComponent;
@@ -126,3 +127,42 @@ describe('IconSpriteComponent', () => {
     expect(viewBoxAttr).toBe('0 0 50 50');
   });
 });
+
+describe('IconSpriteComponent using Service', () => {
+  let component: IconSpriteComponent;
+  let fixture: ComponentFixture<IconSpriteComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        IconSpriteComponent,
+        IconSpriteDirective
+      ],
+      providers: [IconSpriteService]
+    })
+    .compileComponents();
+  }));
+
+  it('should access the default sprite path via its IconSpriteService',
+    inject([IconSpriteService], (iconSpriteService: IconSpriteService) => {
+      iconSpriteService.setPath('foo/bar');
+      fixture = TestBed.createComponent(IconSpriteComponent);
+      component = fixture.componentInstance;
+      component.src = 'star';
+      component.title = 'A title text';
+      fixture.detectChanges();
+
+      const nativeElement: HTMLElement = fixture.nativeElement;
+      const useElement = nativeElement.querySelector('use');
+      const renderedXLinkAttr = useElement.getAttribute('xlink:href');
+      const titleEl = nativeElement.querySelector('title');
+      const titleText = titleEl.textContent;
+      const idAttr = titleEl.getAttribute('id');
+
+      expect(renderedXLinkAttr).toEqual('foo/bar#star');
+      expect(titleText).toBe('A title text');
+      expect(idAttr).toBe('star-title');
+    })
+  );
+});
+
