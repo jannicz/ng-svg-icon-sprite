@@ -52,6 +52,15 @@
   }
 }
 
+.icon-examples-6 {
+  transition: transform ease-in-out 0.1s;
+  transform-origin: center center;
+
+  &:hover, &:focus {
+    transform: rotateY(30deg);
+  }
+}
+
 .icon-scale-down {
   // Scale down by 50%
   transform: scale(0.5);

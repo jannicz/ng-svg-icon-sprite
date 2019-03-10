@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="circle_24x24-viewbox" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+        <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+      </g>
+    </g>
+    <g>
+      <path stroke="#000" id="svg_1" d="m8.00035,40.51145l42.99995,-30.93917l43.00005,30.93917l-16.42448,50.06083l-53.15099,0l-16.42453,-50.06083z" stroke-width="5.5" fill="#fff"/>
+    </g>
+  </symbol>
+  <symbol id="delete_70x70" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+        <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+      </g>
+    </g>
+    <g>
+      <path stroke="#000" id="svg_1" d="m8.00035,40.51145l42.99995,-30.93917l43.00005,30.93917l-16.42448,50.06083l-53.15099,0l-16.42453,-50.06083z" stroke-width="5.5" fill="#fff"/>
+    </g>
+  </symbol>
+  <symbol id="star_100x100" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+          <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+        </g>
+      </g>
+      <g>
+        <path stroke="#000" id="svg_1" d="m8.00035,40.51145l42.99995,-30.93917l43.00005,30.93917l-16.42448,50.06083l-53.15099,0l-16.42453,-50.06083z" stroke-width="5.5" fill="#fff"/>
+      </g>
+  </symbol>
+  <symbol id="star_100x100_viewbox" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+          <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+        </g>
+      </g>
+      <g>
+        <path stroke="#000" id="svg_1" d="m8.00035,40.51145l42.99995,-30.93917l43.00005,30.93917l-16.42448,50.06083l-53.15099,0l-16.42453,-50.06083z" stroke-width="5.5" fill="#fff"/>
+      </g>
+  </symbol>
+</svg>
