@@ -87,8 +87,7 @@ app
 Now you can include icons by using the `svg-icon-sprite` component directive:
 
 ```html
-<!-- including 'cart' icon -->
-
+<!-- include the icon named 'cart' -->
 <svg-icon-sprite
   [src]="'assets/sprites/sprite.svg#cart'"
   [width]="'22px'"
@@ -99,7 +98,7 @@ Now you can include icons by using the `svg-icon-sprite` component directive:
 Having a dynamic icon name:
 
 ```html
-[src]="'assets/sprites/sprite.svg#' + iconName"
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + iconName"></svg-icon-sprite>
 ```
 
 ## Options
@@ -109,7 +108,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 - `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
 - `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
 - `classes` *optional* - class name(s) for this icon, default is `icon`
-- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (used for scaling up/down)
+- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (use for scaling)
 - `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox`
 - `title` - *optional* - text string that will be rendered into a title tag as the first child of the SVG node
 - `attribute` - *optional* - tuple or array of tuples containing key/value pair that should be added as an attribute on the SVG node, i.e. `"['aria-hidden', 'true']"` becomes `<svg aria-hidden="true">`
@@ -128,7 +127,7 @@ color: red;
 
 ### Assets folder
 
-If you have another folder structure than above, you can pass both your input and output path using the npm script:
+If you have another asset folder structure, set your input and output path in the npm script:
 
 ```
 svg2sprite sourcefolder destination/filename.svg
@@ -150,12 +149,11 @@ You need to set the `viewBox` property manually to match the size of the exporte
 ```
 
 See the viewBox [example](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
-
 Still having trouble with scaling or sizing? Read [this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
 ### Dealing with multi color SVGs containing inline styles
 
-If you wish use SVGs that contain inline styles (multi-color) that should not be overridden by CSS,
+If you wish use SVGs that contain inline styles (multi-color) that do not need to be overridden by CSS,
 you will have to provide a separate sprite file that keeps the stroke and fill attributes:
 
 ```json
