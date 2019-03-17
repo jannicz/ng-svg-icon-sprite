@@ -71,10 +71,10 @@
   transform: scale(5);
 }
 
-// Access the SVG via ::ng-deep selector, does not work in Firefox
+// Access the SVG via ::ng-deep selector
 .container {
   ::ng-deep {
-    svg.css-styled-icon {
+    .styled-icon {
       use {
         fill: orange; /* evergreen browser symbol styling */
         stroke: black;

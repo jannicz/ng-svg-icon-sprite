@@ -3,8 +3,7 @@
 
   <h2>The Basics <small>(reference, width and styling)</small></h2>
 
-  <p>To display the icons in original size match the <code>[width]</code> and <code>[height]</code> with the width/height of the equivalent SVG.
-  To access the inner SVG properties like fill or stroke use <code>::ng-deep</code></p>
+  <p>To display the icons in original size match the <code>[width]</code> and <code>[height]</code> with the width/height of the equivalent SVG.</p>
 
   <ul class="vertical">
     <li>
@@ -23,18 +22,20 @@
       </div>
       <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#delete_70x70'" [width]="'70px'" [height]="'65px'"&gt;&lt;/svg-icon&gt;</pre>
     </li>
+  </ul>
+  <p>To access the inner SVG properties like <strong>fill</strong> or <strong>stroke</strong> via CSS use <code>::ng-deep</code></p>
+  <ul class="vertical">
     <li>
-      <div class="icon-row icon-examples-3">
-        <svg-icon-sprite [src]="'star_100x100_viewbox'" [width]="'100px'" [classes]="'css-styled-icon'"></svg-icon-sprite>
+      <div class="icon-row icon-examples-3" style="padding-top: 20px;">
+        <svg-icon-sprite [src]="'star_100x100_viewbox'" [width]="'100px'" [classes]="'styled-icon'"></svg-icon-sprite>
       </div>
-      <pre>&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [classes]="'css-styled-icon'" [width]="'100px'"&gt;&lt;/svg-icon&gt;
-
-.container ::ng-deep svg.css-styled-icon {{ '{' }}
-  use {{ '{' }}
-    fill: orange;
-    stroke: black;
-  {{ '}' }}
-{{ '}' }}</pre>
+      <pre>
+.container {{ '{' }}
+  ::ng-deep {{ '{' }}
+    .styled-icon {{ '{' }}
+      use {{ '{' }}
+        fill: orange;
+        stroke: black;</pre>
     </li>
   </ul>
 
@@ -54,8 +55,7 @@
 .icon-scale-down {{ '{' }}
   // Scale down by 50%
   transform: scale(0.5);
-{{ '}' }}
-      </pre>
+{{ '}' }}</pre>
     </li>
     <li>
       <div class="icon-row icon-examples-4" style="height: 0;">
@@ -99,7 +99,7 @@
     </li>
   </ul>
 
-  <h2 id="defaultpath">Default sprite path <small>(using the icon sprite service)</small></h2>
+  <h2 id="defaultpath">Default sprite path</h2>
 
   Set the sprite path in your <code>environment.ts</code> and set the default path using <code>forRoot()</code>. Now you
   can invoke the component and simply pass the plain icon name as <code>[src]</code>.
@@ -123,7 +123,7 @@ import {{ '{' }} environment {{ '}' }} from '../environments/environment';
     </li>
   </ul>
 
-  <p>
+  <p style="padding-left: 25%;">
     <strong>Advanced Tip:</strong> to change the sprite path during runtime, inject the <code>iconSpriteService</code> anywhere and execute <code>this.iconSpriteService.setPath('new-path.svg')</code>
     Re-render all icon-components afterwards!
     &nbsp;
@@ -171,17 +171,20 @@ import {{ '{' }} environment {{ '}' }} from '../environments/environment';
   Adding <code>[title]="'Orange star'"</code> will render <code>&lt;title id="star_100x100-title"&gt;Orange star&lt;/title&gt;</code> as the first child of the SVG node and serve as alternative text for screen readers.
   To improve support, you can additionally reference the title's node via <code>'aria-labelledby'</code> using the title's generated id <code>star_100x100-title</code> and set the <code>role</code> to <code>img</code>.
 
-  <h2 id="multicolor">Multicolor Icons</h2>
+  <h2 id="multicolor">Multicolor Icons <small>(preserving svg properties)</small></h2>
 
   If you want to include an multicolor icon, you will have to provide it form a separate sprite file (where the fill and stroke attributes are not stripped).
-  Remember that you will not be able to overwrite styles via CSS.
+  Remember that you will not be able to overwrite styles it's via CSS.
 
   <ul class="vertical">
     <li>
-      <div class="icon-row icon-examples-6">
+      <div class="icon-row icon-examples-6" style="width: 33%;">
         <svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'" [width]="'250px'"></svg-icon-sprite>
       </div>
-      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="'assets/sprites/image-sprite.svg#multicolor-image'"&gt;&lt;/svg-icon&gt;</pre>
+      <pre style="height: 70px;">
+&lt;svg-icon-sprite
+  [src]="'assets/sprites/image-sprite.svg#multicolor-image'"&gt;
+&lt;/svg-icon&gt;</pre>
     </li>
   </ul>
 
