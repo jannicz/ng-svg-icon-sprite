@@ -4,11 +4,9 @@ This library provides both a solution for generating SVG sprites and a [module](
 
 ## Demo
 
-![Demo gif animation](svg-icon-sprite-anim.gif)
+<img width="280" alt="Demo gif animation" src="svg-icon-sprite-anim.gif">
 
-<a href="https://jannicz.github.io/ng-svg-icon-sprite/">
-  Try out the ng-svg-icon-sprite demo
-</a>
+[Try out the ng-svg-icon-sprite demo](https://jannicz.github.io/ng-svg-icon-sprite/)
 
 ## Use Cases
 
@@ -71,7 +69,7 @@ npm run generate:svg-sprite
 __Note: the fill and stroke properties are removed so the SVG can be filled via CSS. If don't need to apply color changes on your icons,
 go for the multi-color pattern [described below](#user-content-dealing-with-multi-color-svgs-containing-inline-styles)__
 
-Regardless of the method, the script will take all SVG icons from `src/app/assets/icons` and create a sprite SVG into
+The script will take all SVG icons under `src/app/assets/icons` and create a sprite SVG into
 `src/app/assets/sprites` using the [svg symbols technique](https://css-tricks.com/svg-symbol-good-choice-icons/):
 
 ```
@@ -89,20 +87,18 @@ app
 Now you can include icons by using the `svg-icon-sprite` component directive:
 
 ```html
-<!-- here including 'cart' SVG from the sprite -->
-
+<!-- include the icon named 'cart' -->
 <svg-icon-sprite
   [src]="'assets/sprites/sprite.svg#cart'"
   [width]="'22px'"
   [classes]="'my-icon-class'"
 ></svg-icon-sprite>
+```
 
-<!-- or with a dynamic icon name -->
+Having a dynamic icon name:
 
-<svg-icon-sprite
-  [src]="'assets/sprites/sprite.svg#' + iconName"
-  [width]="'50%'"
-></svg-icon-sprite>
+```html
+<svg-icon-sprite [src]="'assets/sprites/sprite.svg#' + iconName"></svg-icon-sprite>
 ```
 
 ## Options
@@ -112,7 +108,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 - `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
 - `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
 - `classes` *optional* - class name(s) for this icon, default is `icon`
-- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (used for scaling up/down)
+- `viewBox` *optional* - define lengths and coordinates in order to scale to fit the total space available (use for scaling)
 - `preserveAspectRatio` *optional* - manipulate the aspect ratio, only in combination with `viewBox`
 - `title` - *optional* - text string that will be rendered into a title tag as the first child of the SVG node
 - `attribute` - *optional* - tuple or array of tuples containing key/value pair that should be added as an attribute on the SVG node, i.e. `"['aria-hidden', 'true']"` becomes `<svg aria-hidden="true">`
@@ -131,24 +127,11 @@ color: red;
 
 ### Assets folder
 
-If you have another folder structure than above, you can pass both your input and output path using the npm script:
+If you have another asset folder structure, set your input and output path in the npm script:
 
 ```
 svg2sprite sourcefolder destination/filename.svg
 ```
-
-### Custom Styling
-
-To access inner SVG properties like `fill` or `stroke`, you need to use Angular's `::ng-deep` selector in
-the host component and select the `use` tag inside the SVG:
-
-```css
-.host-component ::ng-deep svg.icon use {
-  fill: orange;
-}
-```
-
-__Note: make sure your CSS selector is strong enough here__
 
 ### Scaling and Sizing
 
@@ -166,12 +149,11 @@ You need to set the `viewBox` property manually to match the size of the exporte
 ```
 
 See the viewBox [example](https://jannicz.github.io/ng-svg-icon-sprite/#viewBox) for further details.
-
 Still having trouble with scaling or sizing? Read [this article](https://css-tricks.com/scale-svg/) about SVG scaling.
 
 ### Dealing with multi color SVGs containing inline styles
 
-If you wish to combine the single-color icon pattern with SVGs that contain inline styles (i.e. multi-color) that should not be overridden by CSS,
+If you wish use SVGs that contain inline styles (multi-color) that do not need to be overridden by CSS,
 you will have to provide a separate sprite file that keeps the stroke and fill attributes:
 
 ```json
@@ -180,26 +162,19 @@ you will have to provide a separate sprite file that keeps the stroke and fill a
 }
 ```
 
-The generated sprite will preserve it's original styles, but you won't be able to style it via CSS, [see demo](https://jannicz.github.io/ng-svg-icon-sprite/#multicolor).
+The generated sprite will preserve it's original styles, but you won't be able to style it via CSS ([demo](https://jannicz.github.io/ng-svg-icon-sprite/#multicolor)).
 
 ### Setting a default sprite path for all icons
 
-If your app uses one main sprite source, you can set it's path via the icon sprite service:
+If your app uses one sprite source, you can set it's path in your `@NgModule` imports array:
 
 ```javascript
-// In your app.component import the service
-import { IconSpriteService } from 'ng-svg-icon-sprite';
-
-// Inject it
-constructor(private iconSpriteService: IconSpriteService) {}
-
-// And set the path
-ngOnInit() {
-  this.iconSpriteService.setPath('assets/sprites/sprite.svg');
-}
+imports: [
+  IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
+]
 ```
 
-[Like in the demo](https://jannicz.github.io/ng-svg-icon-sprite/#defaultpath), you can now leave out the path and just provide the icon name.
+You can now leave out the path and just provide the icon name ([demo](https://jannicz.github.io/ng-svg-icon-sprite/#defaultpath)).
 
 ```html
 <svg-icon-sprite [src]="'star'"></svg-icon-sprite>
@@ -228,7 +203,7 @@ svg4everybody();
 ## Accessibility
 
 In order to support screen readers and make the icons meaningful, you can use following patters:
-- add a `title` with descriptive text ([see demo](https://jannicz.github.io/ng-svg-icon-sprite/#a11y))
+- add a `title` with descriptive text ([demo](https://jannicz.github.io/ng-svg-icon-sprite/#a11y))
 - optionally reference the title node using `aria-labelledby=”icon-title”`
 - optionally set the node's `role` to image (`role=”img”`)
 
@@ -247,8 +222,8 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 7. For Angular 6 use [ng-svg-icon-sprite 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1),
-for Angular 4/5 use [ng-svg-icon-sprite 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
+This library is optimized for Angular 7. For Angular 6 use [v. 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1),
+for Angular 4/5 use [v. 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
 
 ## Author & License
 - Jan Suwart | MIT License

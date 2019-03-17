@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IconSpriteService } from 'ng-svg-icon-sprite';
-import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +11,15 @@ export class AppComponent implements OnInit {
   public icon = 'star_100x100_viewbox';
   public width = '100px';
   public color = 'red';
-  private env = environment;
+  public changed = false;
+  public changeDone = false;
 
   constructor(
-    // Optionally inject the icon sprite service to set the filename path globally
+    // Optionally inject the icon sprite service to set path manually
     private iconSpriteService: IconSpriteService
   ) {}
 
-  ngOnInit() {
-    this.iconSpriteService.setPath(this.env.spritePath);
-  }
+  ngOnInit() {}
 
   changeIconPath(src) {
     this.icon = src.split('#')[1] === 'delete_70x70' ? 'star_100x100_viewbox' : 'delete_70x70';
@@ -37,5 +35,17 @@ export class AppComponent implements OnInit {
 
   changeIconColor(color) {
     this.color = color;
+  }
+
+  // Optionally, change the default sprite path during runtime
+  changeDefaultSpritePath() {
+    this.changed = true;
+    this.iconSpriteService.setPath('assets/sprites-secondary/sprite.svg');
+    console.log('changeDefaultSpritePath', this.iconSpriteService.getPath());
+
+    setTimeout(() => {
+      // Demo purpose: force change detection to re-render
+      this.changed = false;
+    }, 0);
   }
 }
