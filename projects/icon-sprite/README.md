@@ -189,7 +189,7 @@ Doing so you will still be able override the default path by using the full synt
 - Edge
 - IE 11 (with polyfill, see below)
 
-### Polyfill for IE11 (and comparable)
+### Polyfill for IE11
 
 Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add
 [svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:

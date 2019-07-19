@@ -141,7 +141,8 @@ import {{ '{' }} environment {{ '}' }} from '../environments/environment';
   <ul class="vertical">
     <li class="icon-change-size">
       <div class="icon-row" [style.color]="color">
-        <svg-icon-sprite #iconSprite [src]="'assets/sprites/sprite.svg#' + icon" [width]="width" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
+        <svg-icon-sprite #iconSprite [src]="icon" [width]="width" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
+        <!-- Alternatively use the full sprite path via: [src]="'assets/sprites/sprite.svg#' + icon" -->
       </div>
       <pre style="height: 30px;">&lt;svg-icon-sprite [src]="icon" [width]="width" [viewBox]="'0 0 100 100'"&gt;&lt;/svg-icon&gt;</pre>
     </li>

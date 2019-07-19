@@ -150,6 +150,10 @@ describe('IconSpriteComponent using Service', () => {
       component = fixture.componentInstance;
       component.src = 'star';
       component.title = 'A title text';
+
+      // Simulate simple input change
+      // See https://medium.com/@christophkrautz/testing-ngonchanges-in-angular-components-bbb3b4650ee8
+      component.ngOnChanges({});
       fixture.detectChanges();
 
       const nativeElement: HTMLElement = fixture.nativeElement;

@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
 
   changeIconPath(src) {
     this.icon = src.split('#')[1] === 'delete_70x70' ? 'star_100x100_viewbox' : 'delete_70x70';
+    console.log('changed path', this.icon);
   }
 
   changeIconSizePlus(width) {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { IconSpriteService } from './icon-sprite.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { IconSpriteService } from './icon-sprite.service';
   styleUrls: ['./icon-sprite.component.scss'],
   templateUrl: './icon-sprite.component.html'
 })
-export class IconSpriteComponent implements OnInit {
+export class IconSpriteComponent implements OnChanges {
 
   @Input() public src: string;
   @Input() public classes = 'icon';
@@ -21,8 +21,8 @@ export class IconSpriteComponent implements OnInit {
     private iconSpriteService: IconSpriteService
   ) {}
 
-  ngOnInit() {
-    // If the src does not contain a # and a spritePath is set, concatenate it
+  ngOnChanges(changes) {
+    // If the src does not contain a # and a spritePath is set via the service, concatenate them
     if (this.src && !this.src.includes('#') && this.iconSpriteService.spritePath) {
       this.src = `${ this.iconSpriteService.getPath() }#${ this.src }`;
     }
