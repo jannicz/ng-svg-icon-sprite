@@ -1,4 +1,4 @@
-# SVG icon sprite component for Angular 7
+# SVG icon sprite component for Angular 8
 
 This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
@@ -222,8 +222,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 7. For Angular 6 use [v. 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1),
-for Angular 4/5 use [v. 0.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/0.8.0).
+This library is optimized for Angular 8, for Angular 7 use [v. 1.6](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.6.1), for 6 use [v. 1.2](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.2.1).
 
 ## Author & License
 - Jan Suwart | MIT License
