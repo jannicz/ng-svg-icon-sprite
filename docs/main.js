@@ -4,16 +4,16 @@
 /*!*************************************************************!*\
   !*** ./dist/ng-svg-icon-sprite/fesm5/ng-svg-icon-sprite.js ***!
   \*************************************************************/
-/*! exports provided: IconSpriteComponent, IconSpriteModule, IconSpriteService, ɵa, ɵb */
+/*! exports provided: IconSpriteComponent, IconSpriteConfig, IconSpriteModule, IconSpriteService, ɵa */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteComponent", function() { return IconSpriteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteConfig", function() { return IconSpriteConfig; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteModule", function() { return IconSpriteModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconSpriteService", function() { return IconSpriteService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return IconSpriteConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return IconSpriteDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return IconSpriteDirective; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 
