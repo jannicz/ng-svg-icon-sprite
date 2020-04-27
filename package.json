@@ -16,7 +16,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng test icon-sprite --browsers=ChromeHeadless --watch=false && ng build --prod",
-    "build:lib": "ng build --prod icon-sprite",
+    "build:lib": "ng build icon-sprite --prod",
     "build:all": "npm run build:lib && npm run build",
     "prebuild:lib": "cpr ./README.md ./projects/icon-sprite/README.md -o && cpr ./LICENSE ./projects/icon-sprite/LICENSE -o",
     "postbuild:lib": "cpr ./projects/icon-sprite/svg-icon-sprite-anim.gif ./dist/ng-svg-icon-sprite/svg-icon-sprite-anim.gif -o",
