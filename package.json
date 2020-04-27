@@ -15,7 +15,7 @@
     "postinstall": "npm run build:lib",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng test icon-sprite --browsers=ChromeHeadless --watch=false && ng build",
+    "build": "ng test icon-sprite --browsers=ChromeHeadless --watch=false && ng build --prod",
     "build:lib": "ng build --prod icon-sprite",
     "build:all": "npm run build:lib && npm run build",
     "prebuild:lib": "cpr ./README.md ./projects/icon-sprite/README.md -o && cpr ./LICENSE ./projects/icon-sprite/LICENSE -o",
