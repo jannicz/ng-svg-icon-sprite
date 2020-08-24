@@ -5,6 +5,18 @@
   100% { transform: translateX(-2px); }
 }
 
+@keyframes pulse {
+  0% {
+    color: #24292e;
+  }
+  50% {
+    color: #B03A2E;
+  }
+  100% {
+    color: #24292e;
+  }
+}
+
 .icon-examples-1 {
   // Use color property for overriding default color and hover effect
   color: darkred;
@@ -90,4 +102,9 @@
       transform-origin: top center;
     }
   }
+}
+
+.headline-green {
+  color: #1E8449;
+  animation: pulse 5s infinite;
 }

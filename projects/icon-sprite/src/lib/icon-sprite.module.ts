@@ -17,7 +17,7 @@ import { IconSpriteConfig } from './icon-sprite-config.model';
   exports: [IconSpriteComponent]
 })
 export class IconSpriteModule {
-  static forRoot(config: IconSpriteConfig): ModuleWithProviders {
+  static forRoot(config: IconSpriteConfig): ModuleWithProviders<any> {
     return {
       ngModule: IconSpriteModule,
       providers: [

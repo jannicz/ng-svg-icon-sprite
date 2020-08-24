@@ -1,0 +1,93 @@
+<h2>Manipulation <small>(scaling and attributes)</small></h2>
+
+<div class="row">
+  <div class="col-controls">
+    <div class="controls">
+      <label for="name">Icon</label>
+      <select class="form-control" id="name"
+              required
+              (change)="applyChange()"
+              [(ngModel)]="model.name" name="power">
+        <option *ngFor="let icon of icons" [value]="icon.name">{{icon.name}}</option>
+      </select>
+      <span class="small">Icon: {{model.source}}</span>
+    </div>
+
+    <div class="controls">
+      <label for="size">Width</label>
+      <input type="range" id="size" name="icon-size" min="40" max="300" [(ngModel)]="model.size">
+      <span class="small">{{model.size}}px</span>
+    </div>
+
+    <div class="controls inline">
+      <label for="viewbox-on" class="inline">Viewbox</label>
+      <input type="checkbox" id="viewbox-on" [(ngModel)]="model.hasViewBox">
+      <span class="small">{{model.hasViewBox ? 'enabled' : 'disabled'}}</span>
+      <i tabindex="0" aria-labelledby="tooltip02">i</i>
+      <span class="tooltip" id="tooltip02">Browsers might scale icons without a viewBox differently</span>
+    </div>
+    <div class="controls">
+      <label for="viewbox1">Viewbox values</label>
+      <div class="viewbox-inputs">
+        <input type="number" id="viewbox1" [(ngModel)]="model.viewboxX1" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
+        <input type="number" id="viewbox2" [(ngModel)]="model.viewboxY1" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
+        <input type="number" id="viewbox3" [(ngModel)]="model.viewboxX2" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
+        <input type="number" id="viewbox4" [(ngModel)]="model.viewboxY2" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
+        <i tabindex="0" aria-labelledby="tooltip01">i</i>
+        <span class="tooltip" id="tooltip01">Decrease the last two values equally to scale up</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label for="color">Color</label>
+      <input type="color"
+             id="color"
+             name="color"
+             [(ngModel)]="model.color">
+      <span class="small">{{model.color}}</span>
+      <span *ngIf="model.source.includes('multicolor-image')" class="small warning">
+        Fill & stroke rules will not apply on multi-color icons!
+      </span>
+    </div>
+
+    <div class="controls">
+      <button (click)="reset()" class="reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="col-symbol">
+    <ng-container *ngIf="model.hasViewBox">
+      <svg-icon-sprite
+        [src]="model.source"
+        [width]="model.size + 'px'"
+        [classes]="model.classes"
+        [viewBox]="viewBox"
+        [attr.style]="'color: ' + model.color"
+      ></svg-icon-sprite>
+    </ng-container>
+    <ng-container *ngIf="!model.hasViewBox">
+      <svg-icon-sprite
+        [src]="model.source"
+        [width]="model.size + 'px'"
+        [classes]="model.classes"
+        [attr.style]="'color: ' + model.color"
+      ></svg-icon-sprite>
+    </ng-container>
+  </div>
+
+  <div class="col-preview">
+    <pre *ngIf="model.hasViewBox">
+&lt;svg-icon
+  [src]="'{{model.source}}'"
+  [width]="'{{model.size}}px'"
+  {{model.hasViewBox ? '[viewBox]="\'' + viewBox + '\'"' : ''}}
+  style="color: {{model.color}};"
+&gt;&lt;/svg-icon&gt;</pre>
+    <pre *ngIf="!model.hasViewBox">
+&lt;svg-icon
+  [src]="'{{model.source}}'"
+  [width]="'{{model.size}}px'"
+  style="color: {{model.color}};"
+&gt;&lt;/svg-icon&gt;</pre>
+  </div>
+</div>

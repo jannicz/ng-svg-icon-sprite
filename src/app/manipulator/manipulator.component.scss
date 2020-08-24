@@ -1,0 +1,130 @@
+:host ::ng-deep svg {
+  border: 1px dashed grey;
+  box-shadow: 2px 2px 2px darkgray;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+}
+
+.col-symbol {
+  grid-column: 8 / 13;
+
+  ::ng-deep svg-icon-sprite {
+    //transition: color 0.1s ease-in-out;
+
+    &:hover {
+      color: darkblue !important;
+
+      svg {
+        box-shadow: 3px 3px 2px darkgray;
+      }
+    }
+  }
+}
+
+.col-controls {
+  grid-column: 1 / 8;
+}
+
+.col-preview {
+  grid-column: 4 / 13;
+}
+
+@media screen and (max-width: 1200px) {
+  .col-symbol {
+    grid-column: 7 / 13;
+  }
+
+  .col-controls {
+    grid-column: 1 / 6;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .col-symbol {
+    grid-column: 1 / 13;
+  }
+
+  .col-controls {
+    grid-column: 1 / 13;
+  }
+}
+
+.controls {
+  margin: 10px 0;
+
+  &:first-of-type {
+    margin-top: -3px;
+  }
+
+  select {
+    padding: 3px;
+  }
+
+  label:not(.inline) {
+    display: block;
+  }
+
+  .small {
+    margin-left: 8px;
+    color: #555555;
+    font-size: 90%;
+  }
+
+  .warning {
+    color: firebrick;
+    display: block;
+    margin-left: 0;
+  }
+
+  .reset {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .viewbox-inputs {
+    input {
+      width: 40px;
+      margin-right: 2px;
+    }
+  }
+}
+
+.tooltip {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+  background-color: #555555;
+  color: white;
+  padding: 2px;
+  border-radius: 4px;
+  font-size: 90%;
+  margin-left: 3px;
+  pointer-events: none;
+}
+
+i {
+  display: inline-block;
+  background-color: rgb(239, 239, 239);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgb(118, 118, 118);
+  margin-left: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bolder;
+  font-style: normal;
+
+  &:hover, &:focus {
+    + .tooltip {
+      opacity: 0.8;
+      height: auto;
+      width: auto;
+    }
+  }
+}
