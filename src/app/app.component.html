@@ -1,7 +1,9 @@
 <div class="container" *ngIf="!changed">
   <h1>SVG-Icon-Sprite <small>Demo</small></h1>
 
-  <h2>The Basics <small>(reference, width and styling)</small></h2>
+  <app-manipulator></app-manipulator>
+
+  <h2 id="manipulation">The Basics <small>(reference, width and styling)</small></h2>
 
   <p>To display the icons in original size match the <code>[width]</code> and <code>[height]</code> with the width/height of the equivalent SVG.</p>
 
@@ -40,9 +42,9 @@
   </ul>
 
 
-  <h2 id="scaling">Scaling <small>(using CSS transform)</small></h2>
+  <h2 id="scaling">Alternative Scaling <small>(using CSS transform)</small></h2>
 
-  <p>Use this pattern if you want to change the size of the original SVG. Apply same rules as above, wrap the SVG into a div and size it using CSS transforms.</p>
+  <p>As scaling via <code>viewBox</code> might differ across browsers, you can also use this pattern. Apply rules as below: wrap the SVG into a div and size it using CSS transforms.</p>
 
   <ul class="vertical">
     <li>
@@ -68,33 +70,6 @@
   // Scale up by 500%
   transform: scale(5);
 {{ '}' }}
-      </pre>
-    </li>
-  </ul>
-
-  <h2 id="viewBox">Scaling <small>(using viewBox)</small></h2>
-
-  This is an alternative to the CSS scaling method presented above. Scaling via <code>viewBox</code> is <strong>less consistent across browsers</strong>.
-  The pattern depends on your SVG source file, whether it already contains a <code>viewBox</code> or not.
-  The following example SVGs with an original size of <code>100x100px</code> are scaled down by 50%.
-
-  <ul class="vertical">
-    <li>
-      <div class="icon-row icon-examples-2">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'" [viewBox]="'-50 -50 200 200'"></svg-icon-sprite>
-      </div>
-      <pre>
-&lt;!-- SVG source lacks a viewBox --&gt;
-&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100'" [width]="'100px'" [viewBox]="'-50 -50 200 200'"&gt;&lt;/svg-icon&gt;
-      </pre>
-    </li>
-    <li>
-      <div class="icon-row icon-examples-3">
-        <svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100_viewbox'" [width]="'50px'" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
-      </div>
-      <pre>
-&lt;!-- SVG source contains a viewBox --&gt;
-&lt;svg-icon-sprite [src]="'assets/sprites/sprite.svg#star_100x100_viewbox'" [width]="'50px'" [viewBox]="'0 0 100 100'"&gt;&lt;/svg-icon&gt;
       </pre>
     </li>
   </ul>
@@ -129,24 +104,6 @@ import {{ '{' }} environment {{ '}' }} from '../environments/environment';
     &nbsp;
     <button (click)="changeDefaultSpritePath(); changeDone = true;" [disabled]="changeDone">Change and render</button>
   </p>
-
-  <h2 id="manipulation">Manipulation <small>(using dynamic icon path)</small></h2>
-
-  <button (click)="changeIconPath(iconSprite.src)">Change Icon Path</button>
-  <button [disabled]="iconSprite.width.split('px')[0] <= 20" (click)="changeIconSizeMinus(iconSprite.width)">Size -</button>
-  <button (click)="changeIconSizePlus(iconSprite.width)">Size +</button>
-  <input #colorInput type="text" value="blue">
-  <button (click)="changeIconColor(colorInput.value)">Set color</button>
-
-  <ul class="vertical">
-    <li class="icon-change-size">
-      <div class="icon-row" [style.color]="color">
-        <svg-icon-sprite #iconSprite [src]="icon" [width]="width" [viewBox]="'0 0 100 100'"></svg-icon-sprite>
-        <!-- Alternatively use the full sprite path via: [src]="'assets/sprites/sprite.svg#' + icon" -->
-      </div>
-      <pre style="height: 30px;">&lt;svg-icon-sprite [src]="icon" [width]="width" [viewBox]="'0 0 100 100'"&gt;&lt;/svg-icon&gt;</pre>
-    </li>
-  </ul>
 
   <h2 id="a11y">Accessible example <small>(meaningful icon pattern)</small></h2>
 
@@ -188,6 +145,12 @@ import {{ '{' }} environment {{ '}' }} from '../environments/environment';
 &lt;/svg-icon&gt;</pre>
     </li>
   </ul>
+
+  <h2 class="headline-green">Why not a Web Component?</h2>
+
+  You are using Web Components in your Angular app? Try <a href="https://jannicz.github.io/svg-icon-sprite/">this simpler but similar library</a>, realized as web component!
+
+  <h2>Bugs</h2>
 
   <p>
     Report bugs or feature requests on <a href="https://github.com/jannicz/ng-svg-icon-sprite/issues">Github Issues</a>

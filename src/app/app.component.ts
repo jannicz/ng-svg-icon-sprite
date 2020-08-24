@@ -8,9 +8,6 @@ import { IconSpriteService } from 'ng-svg-icon-sprite';
 })
 export class AppComponent implements OnInit {
 
-  public icon = 'star_100x100_viewbox';
-  public width = '100px';
-  public color = 'red';
   public changed = false;
   public changeDone = false;
 
@@ -20,23 +17,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-
-  changeIconPath(src) {
-    this.icon = src.split('#')[1] === 'delete_70x70' ? 'star_100x100_viewbox' : 'delete_70x70';
-    console.log('changed path', this.icon);
-  }
-
-  changeIconSizePlus(width) {
-    this.width = Number(width.replace('px', '')) + 15 + 'px';
-  }
-
-  changeIconSizeMinus(width) {
-    this.width = Number(width.replace('px', '')) - 15 + 'px';
-  }
-
-  changeIconColor(color) {
-    this.color = color;
-  }
 
   // Optionally, change the default sprite path during runtime
   changeDefaultSpritePath() {
