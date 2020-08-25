@@ -10,7 +10,8 @@
               [(ngModel)]="model.name" name="power">
         <option *ngFor="let icon of icons" [value]="icon.name">{{icon.name}}</option>
       </select>
-      <span class="small">Icon: {{model.source}}</span>
+      <br />
+      <span class="small">{{model.source}}</span>
     </div>
 
     <div class="controls">

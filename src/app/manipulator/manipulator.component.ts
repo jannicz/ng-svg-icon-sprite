@@ -9,9 +9,9 @@ import { IconForm } from './IconForm.model';
 export class ManipulatorComponent implements OnInit {
 
   public icons = [
-    { src: 'star_100x100_viewbox', name: 'Star (100 x 100px)'},
-    { src: 'delete_70x70', name: 'Trash (70 x 70px)'},
-    { src: 'circle_24x24-viewbox', name: 'Circle (24 x 24px)'},
+    { src: 'assets/sprites/sprite.svg#star_100x100_viewbox', name: 'Star (100 x 100px)'},
+    { src: 'assets/sprites/sprite.svg#delete_70x70', name: 'Trash (70 x 70px)'},
+    { src: 'assets/sprites/sprite.svg#circle_24x24-viewbox', name: 'Circle (24 x 24px)'},
     { src: 'assets/sprites/image-sprite.svg#multicolor-image', name: 'Multicolor Image'}
   ];
 
@@ -46,6 +46,7 @@ export class ManipulatorComponent implements OnInit {
 
   reset(): void {
     this.initialize();
+    this.calculateViewBox();
   }
 
   applyChange(): void {

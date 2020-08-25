@@ -39,6 +39,10 @@ p {
 a {
   color: steelblue;
   text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
 }
 button, input, select {
   font-size: 14px;
@@ -63,7 +67,6 @@ pre {
 }
 code {
   line-height: 1.45;
-  background-color: lavender;
   font-family: Courier, monospace;
 }
 small {

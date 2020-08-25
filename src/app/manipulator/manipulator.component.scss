@@ -60,6 +60,10 @@
     margin-top: -3px;
   }
 
+  input {
+    margin-right: 10px;
+  }
+
   select {
     padding: 3px;
   }
@@ -69,7 +73,6 @@
   }
 
   .small {
-    margin-left: 8px;
     color: #555555;
     font-size: 90%;
   }
@@ -105,6 +108,7 @@
   font-size: 90%;
   margin-left: 3px;
   pointer-events: none;
+  transition: opacity 0.1s ease-in-out;
 }
 
 i {
@@ -115,7 +119,7 @@ i {
   border-radius: 50%;
   border: 1px solid rgb(118, 118, 118);
   margin-left: 5px;
-  cursor: pointer;
+  cursor: help;
   text-align: center;
   font-weight: bolder;
   font-style: normal;
