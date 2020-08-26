@@ -8,11 +8,15 @@ import { IconForm } from './IconForm.model';
 })
 export class ManipulatorComponent implements OnInit {
 
+  private initialSize = 240;
+
+  private initialColor = '#ab3030';
+
   public icons = [
-    { src: 'assets/sprites/sprite.svg#star_100x100_viewbox', name: 'Star (100 x 100px)'},
-    { src: 'assets/sprites/sprite.svg#delete_70x70', name: 'Trash (70 x 70px)'},
-    { src: 'assets/sprites/sprite.svg#circle_24x24-viewbox', name: 'Circle (24 x 24px)'},
-    { src: 'assets/sprites/image-sprite.svg#multicolor-image', name: 'Multicolor Image'}
+    { src: 'assets/sprites/sprite.svg#star_100x100_viewbox', name: 'Star (100 x 100px)', viewBoxX2: 100 },
+    { src: 'assets/sprites/sprite.svg#delete_70x70', name: 'Trash (70 x 70px)', viewBoxX2: 70 },
+    { src: 'assets/sprites/sprite.svg#circle_24x24-viewbox', name: 'Circle (24 x 24px)', viewBoxX2: 24 },
+    { src: 'assets/sprites/image-sprite.svg#multicolor-image', name: 'Multicolor (250 x 250px)', viewBoxX2: 250 }
   ];
 
   public model: IconForm;
@@ -32,13 +36,13 @@ export class ManipulatorComponent implements OnInit {
     this.model = new IconForm(
       this.icons[0].src,
       this.icons[0].name,
-      240,
+      this.initialSize,
       true,
       0,
       0,
-      100,
-      100,
-      '#ab3030',
+      this.icons[0].viewBoxX2,
+      this.icons[0].viewBoxX2,
+      this.initialColor,
       // styled-icon
       'some-class-name'
     );
@@ -51,12 +55,27 @@ export class ManipulatorComponent implements OnInit {
 
   applyChange(): void {
     const model = this.icons.find(i => i.name === this.model.name);
-    console.log('icon model =>', model);
+    console.log('icon model =>', model.src);
     this.model.source = model.src;
 
-    if (this.model.source.includes('multicolor-image')) {
-      // Disable the viewBox for this particular icon
-      this.model.hasViewBox = false;
+    if (this.model.hasViewBox) {
+      // Apply viewBox for each particular icon
+      switch (this.model.source) {
+        case this.icons[0].src:
+          this.model.viewboxY2 = this.model.viewboxX2 = this.icons[0].viewBoxX2;
+          break;
+        case this.icons[1].src:
+          this.model.viewboxY2 = this.model.viewboxX2 = this.icons[1].viewBoxX2;
+          break;
+        case this.icons[2].src:
+          this.model.viewboxY2 = this.model.viewboxX2 = this.icons[2].viewBoxX2;
+          break;
+        case this.icons[3].src:
+          this.model.viewboxY2 = this.model.viewboxX2 = this.icons[3].viewBoxX2;
+          break;
+      }
+
+      this.calculateViewBox();
     }
   }
 

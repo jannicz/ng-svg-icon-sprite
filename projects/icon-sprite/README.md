@@ -17,7 +17,7 @@ This library provides both a solution for generating SVG sprites and a [module](
 ## Installation
 
 After installing the package as dependency you can import it into
-any application’s app.module.ts by simply including it in its `@NgModule` imports array:
+any application’s `app.module.ts` by simply including it in its `@NgModule` imports array:
 
 ```javascript
 import { IconSpriteModule } from 'ng-svg-icon-sprite'; // <-- here
@@ -40,7 +40,7 @@ export class AppModule { }
 To use your SVGs from a sprite you need to:
 
 1. Convert your SVG icons into a sprite using a script
-2. Include the `svg-icon-sprite` component with the sprite path and the icon name
+2. Include the `svg-icon-sprite` component with the sprite path, and the icon name
 
 ### Step 1: Generate the sprite
 
@@ -66,7 +66,7 @@ now execute the script:
 npm run generate:svg-sprite
 ```
 
-__Note: the fill and stroke properties are removed so the SVG can be filled via CSS. If don't need to apply color changes on your icons,
+__Note: only if the fill and stroke attributes are removed, the SVG can be styled via CSS. If don't need to apply color changes on your icons,
 go for the multi-color pattern [described below](#user-content-dealing-with-multi-color-svgs-containing-inline-styles)__
 
 The script will take all SVG icons under `src/app/assets/icons` and create a sprite SVG into
@@ -115,7 +115,7 @@ the name of the sprite and `icon` is the filename of the svg icon.
 
 ## Styling
 
-To change the sprite color add a CSS `color` property to the component invoking svg-icon-sprite. The SVG component uses
+In order to change the icon color, add a CSS `color` property to the component invoking svg-icon-sprite. The SVG component uses
 the `currentColor` value to [pass the ancestor's color](https://css-tricks.com/cascading-svg-fill-color) through to the SVG shapes:
 
 ```css
@@ -136,8 +136,8 @@ svg2sprite sourcefolder destination/filename.svg
 ### Scaling and Sizing
 
 If your SVG does not scale like expected (i.e. it is cropped or larger than desired) it might be lacking a `viewBox`.
-You need to set the `viewBox` property manually to match the size of the exported shape. A combination of the correct
-`viewBox` and width is required. Add the `viewBox` property and decrease/increase the last 2 values:
+You need to set the `viewBox` attributes manually to match the size of the exported shape. A combination of the correct
+`viewBox` and width is required. Add the `viewBox` attribute and decrease/increase the last 2 values:
 
 ```html
 <!-- i.e. lower '0 0 80 80' to '0 0 40 40' to scale up/down -->
@@ -154,7 +154,7 @@ Still having trouble with scaling or sizing? Read [this article](https://css-tri
 ### Dealing with multi color SVGs containing inline styles
 
 If you wish use SVGs that contain inline styles (multi-color) that do not need to be overridden by CSS,
-you will have to provide a separate sprite file that keeps the stroke and fill attributes:
+provide a separate sprite file that keeps the stroke and fill attributes:
 
 ```json
 "scripts": {
@@ -162,11 +162,11 @@ you will have to provide a separate sprite file that keeps the stroke and fill a
 }
 ```
 
-The generated sprite will preserve it's original styles, but you won't be able to style it via CSS ([demo](https://jannicz.github.io/ng-svg-icon-sprite/#multicolor)).
+The generated sprite will preserve its original styles, but you won't be able to style it via CSS that easily ([demo](https://jannicz.github.io/ng-svg-icon-sprite/#multicolor)).
 
 ### Setting a default sprite path for all icons
 
-If your app uses one sprite source, you can set it's path in your `@NgModule` imports array:
+If your app uses one sprite source, you can set its path in your `@NgModule` imports array:
 
 ```javascript
 imports: [
@@ -180,7 +180,7 @@ You can now leave out the path and just provide the icon name ([demo](https://ja
 <svg-icon-sprite [src]="'star'"></svg-icon-sprite>
 ```
 
-Doing so you will still be able override the default path by using the full syntax for particular icons that should use a different sprite file.
+Doing so you will still be able to override the default path by using the full syntax for particular icons that should use a different sprite file.
 
 ## Browser Support
 - Chrome (63)

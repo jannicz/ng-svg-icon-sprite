@@ -95,15 +95,6 @@
   }
 }
 
-.icon-change-size {
-  ::ng-deep {
-    svg {
-      transition: all linear 0.2s;
-      transform-origin: top center;
-    }
-  }
-}
-
 .headline-green {
   color: #1E8449;
   animation: pulse 5s infinite;

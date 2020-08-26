@@ -16,13 +16,13 @@
 
     <div class="controls">
       <label for="size">Width</label>
-      <input type="range" id="size" name="icon-size" min="40" max="300" [(ngModel)]="model.size">
+      <input type="range" id="size" name="icon-size" min="24" max="300" [(ngModel)]="model.size">
       <span class="small">{{model.size}}px</span>
     </div>
 
     <div class="controls inline">
       <label for="viewbox-on" class="inline">Viewbox</label>
-      <input type="checkbox" id="viewbox-on" [(ngModel)]="model.hasViewBox">
+      <input type="checkbox" id="viewbox-on" [(ngModel)]="model.hasViewBox" (change)="calculateViewBox()">
       <span class="small">{{model.hasViewBox ? 'enabled' : 'disabled'}}</span>
       <i tabindex="0" aria-labelledby="tooltip02">i</i>
       <span class="tooltip" id="tooltip02">Browsers might scale icons without a viewBox differently</span>
@@ -35,7 +35,7 @@
         <input type="number" id="viewbox3" [(ngModel)]="model.viewboxX2" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
         <input type="number" id="viewbox4" [(ngModel)]="model.viewboxY2" [disabled]="!model.hasViewBox" (change)="calculateViewBox()" (keyup)="calculateViewBox()">
         <i tabindex="0" aria-labelledby="tooltip01">i</i>
-        <span class="tooltip" id="tooltip01">Decrease the last two values equally to scale up</span>
+        <span class="tooltip" id="tooltip01">Decrease the last two values (x2, y2) equally to scale up</span>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
              [(ngModel)]="model.color">
       <span class="small">{{model.color}}</span>
       <span *ngIf="model.source.includes('multicolor-image')" class="small warning">
-        Fill & stroke rules will not apply on multi-color icons!
+        CSS only affects paths without fill or stroke attribute
       </span>
     </div>
 
@@ -77,18 +77,19 @@
   </div>
 
   <div class="col-preview">
-    <pre *ngIf="model.hasViewBox">
-&lt;svg-icon
+    <pre *ngIf="model.hasViewBox"><code>&lt;svg-icon-sprite
   [src]="'{{model.source}}'"
   [width]="'{{model.size}}px'"
   {{model.hasViewBox ? '[viewBox]="\'' + viewBox + '\'"' : ''}}
-  style="color: {{model.color}};"
-&gt;&lt;/svg-icon&gt;</pre>
-    <pre *ngIf="!model.hasViewBox">
-&lt;svg-icon
+  [attr.style]="'color: {{model.color}}'"
+&gt;&lt;/svg-icon-sprite&gt;</code></pre>
+    <pre *ngIf="!model.hasViewBox"><code>&lt;svg-icon-sprite
   [src]="'{{model.source}}'"
   [width]="'{{model.size}}px'"
-  style="color: {{model.color}};"
-&gt;&lt;/svg-icon&gt;</pre>
+  [attr.style]="'color: {{model.color}}'"
+&gt;&lt;/svg-icon-sprite&gt;</code></pre>
+    <small>
+      <em>Tip:</em> Put the color property directly into the CSS file
+    </small>
   </div>
 </div>

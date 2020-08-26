@@ -1,6 +1,5 @@
 :host ::ng-deep svg {
   border: 1px dashed grey;
-  box-shadow: 2px 2px 2px darkgray;
 }
 
 .row {
@@ -13,13 +12,13 @@
   grid-column: 8 / 13;
 
   ::ng-deep svg-icon-sprite {
-    //transition: color 0.1s ease-in-out;
+    transition: color 0.05s ease-in-out;
 
     &:hover {
-      color: darkblue !important;
+      color: darkorange !important;
 
       svg {
-        box-shadow: 3px 3px 2px darkgray;
+        box-shadow: 2px 2px 2px lightgrey;
       }
     }
   }
@@ -78,7 +77,7 @@
   }
 
   .warning {
-    color: firebrick;
+    color: crimson;
     display: block;
     margin-left: 0;
   }
