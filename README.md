@@ -1,4 +1,4 @@
-# SVG icon sprite component for Angular 10
+# SVG icon sprite component for Angular 11
 
 This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
@@ -48,7 +48,7 @@ First add the library [for sprite generation svg2sprite](https://github.com/mrml
                                                                                       
 ```json
 "devDependencies": {
-  "svg2sprite-cli": "2.0.0"
+  "svg2sprite-cli": "^2.0.1"
 }
 ```
 
@@ -187,18 +187,8 @@ Doing so you will still be able to override the default path by using the full s
 - Firefox (57)
 - Safari 11
 - Edge
-- IE 11 (with polyfill, see below)
 
-### Polyfill for IE11
-
-Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add
-[svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
-
-```javascript
-// Add the node module, import and execute it in polyfills.ts
-import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
-svg4everybody();
-```
+IE 11 support was removed in version 1.10.
 
 ## Accessibility
 
@@ -222,7 +212,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 10, for Angular 9 use [v. 1.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.8.1), for 8 use [v. 1.7](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.7.0).
+This library is optimized for Angular 11, for 10 use [v. 1.9](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.9.1), for 9 use [v. 1.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.8.1).
 If you combine multiple frameworks (i.e. React, Vue, etc.), it is recommended to use [svg-icon-sprite web component](https://www.npmjs.com/package/svg-icon-sprite) instead!
 
 ## Author & License
