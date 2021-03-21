@@ -187,18 +187,8 @@ Doing so you will still be able to override the default path by using the full s
 - Firefox (57)
 - Safari 11
 - Edge
-- IE 11 (with polyfill, see below)
 
-### Polyfill for IE11
-
-Older browsers do not support referencing to (external) SVG symbols. To make it work for IE11 and lower you can add
-[svg4everybody](https://github.com/jonathantneal/svg4everybody) to your `polyfills.ts` file:
-
-```javascript
-// Add the node module, import and execute it in polyfills.ts
-import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
-svg4everybody();
-```
+IE 11 support was removed in version 1.10.
 
 ## Accessibility
 

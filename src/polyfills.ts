@@ -19,26 +19,26 @@
 */
 
 /** IE10 and IE11 requires all of the following polyfills. **/
-import 'core-js/es/symbol';
-import 'core-js/es/object';
-import 'core-js/es/function';
-import 'core-js/es/parse-int';
-import 'core-js/es/parse-float';
-import 'core-js/es/number';
-import 'core-js/es/math';
-import 'core-js/es/string';
-import 'core-js/es/date';
-import 'core-js/es/array';
-import 'core-js/es/regexp';
-import 'core-js/es/map';
-import 'core-js/es/weak-map';
-import 'core-js/es/set';
+// import 'core-js/es/symbol';
+// import 'core-js/es/object';
+// import 'core-js/es/function';
+// import 'core-js/es/parse-int';
+// import 'core-js/es/parse-float';
+// import 'core-js/es/number';
+// import 'core-js/es/math';
+// import 'core-js/es/string';
+// import 'core-js/es/date';
+// import 'core-js/es/array';
+// import 'core-js/es/regexp';
+// import 'core-js/es/map';
+// import 'core-js/es/weak-map';
+// import 'core-js/es/set';
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
-import 'classlist.js';  // Run `npm install --save classlist.js`.
+// import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /** IE10 and IE11 requires the following for the Reflect API. */
-import 'core-js/proposals/reflect-metadata';
+// import 'core-js/proposals/reflect-metadata';
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
@@ -79,5 +79,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  */
 
 /** IE10 and IE11 external SVG polyfill */
-import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
-svg4everybody();
+// import * as svg4everybody from 'svg4everybody/dist/svg4everybody.js';
+// svg4everybody();
