@@ -1,4 +1,4 @@
-# SVG icon sprite component for Angular 10
+# SVG icon sprite component for Angular 11
 
 This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
@@ -48,7 +48,7 @@ First add the library [for sprite generation svg2sprite](https://github.com/mrml
                                                                                       
 ```json
 "devDependencies": {
-  "svg2sprite-cli": "2.0.0"
+  "svg2sprite-cli": "^2.0.1"
 }
 ```
 
