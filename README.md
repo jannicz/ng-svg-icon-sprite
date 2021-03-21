@@ -212,7 +212,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 10, for Angular 9 use [v. 1.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.8.1), for 8 use [v. 1.7](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.7.0).
+This library is optimized for Angular 11, for 10 use [v. 1.9](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.9.1), for 9 use [v. 1.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.8.1).
 If you combine multiple frameworks (i.e. React, Vue, etc.), it is recommended to use [svg-icon-sprite web component](https://www.npmjs.com/package/svg-icon-sprite) instead!
 
 ## Author & License
