@@ -12,8 +12,8 @@
     "url": "git+https://github.com/jannicz/ng-svg-icon-sprite.git"
   },
   "peerDependencies": {
-    "@angular/common": "^11.0.0",
-    "@angular/core": "^11.0.0"
+    "@angular/common": "^12.2.16",
+    "@angular/core": "^12.2.16"
   },
   "keywords": [
     "icon",
