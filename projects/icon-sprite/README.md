@@ -45,10 +45,10 @@ To use your SVGs from a sprite you need to:
 ### Step 1: Generate the sprite
 
 First add the library [for sprite generation svg2sprite](https://github.com/mrmlnc/svg2sprite-cli) as a devDependency:
-                                                                                      
+
 ```json
 "devDependencies": {
-  "svg2sprite-cli": "^2.0.1"
+"svg2sprite-cli": "^2.0.1"
 }
 ```
 
@@ -56,7 +56,7 @@ Each time you add an icon, you need to run the script generating the sprite. You
 
 ```json
 "scripts": {
-  "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
+"generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id"
 }
 ```
 
@@ -104,7 +104,7 @@ Having a dynamic icon name:
 ## Options
 
 - `src` - icon source name, the syntax is `path/file#icon` where `path` is relative to app folder, `file` is
-the name of the sprite and `icon` is the filename of the svg icon.
+  the name of the sprite and `icon` is the filename of the svg icon.
 - `width` *optional* - width of the svg in any length unit, i.e. `32px`, `50%`, `auto` etc., default is `100%`
 - `height` *optional* - the height of the svg in any length unit, if undefined height will equal the width
 - `classes` *optional* - class name(s) for this icon, default is `icon`
@@ -158,7 +158,7 @@ provide a separate sprite file that keeps the stroke and fill attributes:
 
 ```json
 "scripts": {
-  "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
+"generate:svg-multicolor-sprite": "svg2sprite ./src/assets/svg-images ./src/assets/sprites/image-sprite.svg"
 }
 ```
 
@@ -212,7 +212,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 11, for 10 use [v. 1.9](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.9.1), for 9 use [v. 1.8](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.8.1).
+This library is optimized for Angular 12, for 11 use [v. 1.10](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.10), for 10 use [v. 1.9](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.9).
 If you combine multiple frameworks (i.e. React, Vue, etc.), it is recommended to use [svg-icon-sprite web component](https://www.npmjs.com/package/svg-icon-sprite) instead!
 
 ## Author & License
