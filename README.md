@@ -1,4 +1,4 @@
-# SVG icon sprite component for Angular 12
+# SVG icon sprite component for Angular 14
 
 This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
@@ -212,7 +212,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 12, for 11 use [v. 1.10](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.10.0), for 10 use [v. 1.9](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.9.1).
+This library is optimized for Angular 14, for 12 use [v. 1.11](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.11.0), for 11 use [v. 1.10](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.10.0).
 If you combine multiple frameworks (i.e. React, Vue, etc.), it is recommended to use [svg-icon-sprite web component](https://www.npmjs.com/package/svg-icon-sprite) instead!
 
 ## Author & License

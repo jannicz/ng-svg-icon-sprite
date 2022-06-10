@@ -172,5 +172,8 @@
       }
     }
   },
+  "cli": {
+    "analytics": false
+  },
   "defaultProject": "ng-svg-icon-sprite-app"
 }
