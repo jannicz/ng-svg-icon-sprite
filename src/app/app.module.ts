@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 // Has to be imported by relative path since update to 14
-// import { IconSpriteModule } from 'ng-svg-icon-sprite';
-import { IconSpriteModule } from '../../projects/icon-sprite/src/lib/icon-sprite.module';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { environment } from '../environments/environment';
 import { ManipulatorComponent } from './manipulator/manipulator.component';
 
