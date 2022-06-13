@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+// Has to be imported by relative path since update to 14
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { environment } from '../environments/environment';
 import { ManipulatorComponent } from './manipulator/manipulator.component';
@@ -15,6 +17,8 @@ import { ManipulatorComponent } from './manipulator/manipulator.component';
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
     IconSpriteModule.forRoot({ path: environment.spritePath })
   ],
   providers: [],
