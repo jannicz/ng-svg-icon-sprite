@@ -1,4 +1,4 @@
-# SVG icon sprite component for Angular 14
+# SVG icon sprite component for Angular 16
 
 This library provides both a solution for generating SVG sprites and a [module](https://www.npmjs.com/package/ng-svg-icon-sprite) for including them.
 
@@ -188,8 +188,6 @@ Doing so you will still be able to override the default path by using the full s
 - Safari 11
 - Edge
 
-IE 11 support was removed in version 1.10.
-
 ## Accessibility
 
 In order to support screen readers and make the icons meaningful, you can use following patters:
@@ -212,7 +210,7 @@ Or use combinations of several methods to achieve better results, like described
 
 ## Compatibility
 
-This library is optimized for Angular 14, for 12 use [v. 1.11](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.11.0), for 11 use [v. 1.10](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.10.0).
+This library is optimized for Angular 16, for 14 use [v. 1.12](https://www.npmjs.com/package/ng-svg-icon-sprite/v/1.12.0).
 If you combine multiple frameworks (i.e. React, Vue, etc.), it is recommended to use [svg-icon-sprite web component](https://www.npmjs.com/package/svg-icon-sprite) instead!
 
 ## Author & License
