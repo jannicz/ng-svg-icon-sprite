@@ -1,6 +1,6 @@
 {
   "name": "ng-svg-icon-sprite-app",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "license": "MIT",
   "author": "Jan Suwart",
   "description": "Angular 16+ package for generating and using inline SVG icons in your project",
